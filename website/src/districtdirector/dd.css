@@ -1,0 +1,238 @@
+.approve-li {
+    background-color: rgb(82, 3, 147);
+    width:  90%;
+    height: 80vh;
+    margin: 70px;
+    padding: 20px;
+    border-radius: 25px;
+    overflow-y: scroll;
+    color: antiquewhite;
+}
+
+.approve-li div {
+    text-align: center;
+  }
+  
+  /* Style the heading */
+  .approve-li h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the subheading */
+  .approve-li h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the input */
+  .approve-li input {
+    padding: 10px;
+    width: 85%;
+    margin: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: rgb(220, 222, 228);
+  }
+  
+  /* Style the city container */
+  .approve-li div {
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  /* Color coding based on city value */
+  .approve-li div {
+    color: red; /* Default color */
+  }
+  
+  .approve-li div.green {
+    color: rgb(212, 221, 212); /* Color for cities with a non-null value */
+  }
+  
+
+.admin-app-ta{
+    margin: 40px;
+  }
+  
+  .admin-app-ta table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 40px;
+    margin-left: 140px;
+    border-radius: 8px;
+  }
+  
+  .admin-app-ta th, .admin-app-ta td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    /* font-size: 20px; */
+    font-weight: bold;
+    color: #f2f2f2;
+  }
+  
+  .admin-app-ta th {
+    background-color: #f2f2f2; /* Add background color for heading cells if desired */
+    color: green;
+  }
+  
+
+ .dd-update {
+    /* background-color: rgb(195, 162, 16);
+    width:  90%;
+    height: 80vh; */
+    margin: 70px;
+    padding: 20px;
+    border-radius: 25px;
+    /* overflow-y: scroll; */
+    color: antiquewhite;
+ }
+
+ .dd-update input {
+    padding: 10px;
+    width: 85%;
+    margin: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: rgb(220, 222, 228);
+  }
+
+  .dd-update .body{
+    background-color: rgb(195, 162, 16);;
+    border-radius: 25PX;
+  }
+
+ .dd-update center{
+    overflow-y: scroll;
+ }
+
+ .pending-li{
+    background-color: bisque;
+    width:  90%;
+    height: 80vh;
+    margin: 70px;
+    padding: 20px;
+    border-radius: 25px;
+    overflow-y: scroll;
+    /* color: antiquewhite; */
+ }
+
+ .pending-li div {
+    text-align: center;
+    border: none;
+  }
+  
+  /* Style the heading */
+  .pending-li h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the subheading */
+  .pending-li h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the input */
+  .pending-li input {
+    padding: 10px;
+    width: 85%;
+    margin: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    /* background-color: rgb(220, 222, 228); */
+  }
+  
+  /* Style the city container */
+  .pending-li div {
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  /* Color coding based on city value */
+  .pending-li div {
+    color: red; /* Default color */
+  }
+  
+  .pending-li div.green {
+    color: rgb(212, 221, 212); /* Color for cities with a non-null value */
+  }
+  
+
+
+
+    .transfer-li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(82, 3, 147);
+    
+    margin: 70px;
+    padding: 20px;
+    border-radius: 25px;
+    overflow-y: scroll;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+}
+
+.transfer-li div {
+    text-align: center;
+  }
+  
+  .transfer-li select {
+    padding: 10px;
+    border-radius: 25px;
+  }
+
+  .transfer-li button{
+    padding: 10px;
+    /* width: 40%; */
+    font-size: 20px;
+    margin-top: 20px;
+    border-radius: 25px;
+  }
+
+  /* Style the heading */
+  .transfer-li h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+
+  }
+  
+  /* Style the subheading */
+  .transfer-li h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the input */
+  .transfer-li input {
+    place-items: center;
+    padding: 10px;
+    /* width: 85%; */
+    margin: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: rgb(220, 222, 228);
+  }
+  
+  .transfer-li div {
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  /* Color coding based on city value */
+  .transfer-li div {
+    color: red; /* Default color */
+  }
+  
+  .transfer-li div.green {
+    color: rgb(212, 221, 212); /* Color for cities with a non-null value */
+  }
+  
+
