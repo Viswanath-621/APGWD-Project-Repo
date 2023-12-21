@@ -70,6 +70,11 @@ function Login() {
           state={{ district: gdistrict,name:us }}
         />
       )}
+
+{
+        designation==='jd' && (<Navigate to="/jd" replace={true}/>)
+        
+      }
       <div className="login-container">
         <div className="login-content">
           <h2>Login Now</h2> <br />

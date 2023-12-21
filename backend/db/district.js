@@ -22,8 +22,12 @@ const DistrictSchema = new mongoose.Schema({
     {
         type:String,
         required:false
+    },
+    image:
+    {
+        type:String,
+        required:false
     }
-    
 });
 
 const District = mongoose.model('Ntr District',DistrictSchema);

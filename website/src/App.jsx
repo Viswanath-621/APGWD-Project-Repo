@@ -5,6 +5,7 @@ import Login from "./components/Auth/Login";
 import Welcome from "./pages/Welcome";
 import Admin from "./pages/Admin";
 import FormDetails from "./pages/FormDetails";
+import Jdmail from './Jointdirector/Jdmail';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Signup" element={<Signup />}></Route>
         <Route path="/employee" element={<Welcome />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path='/jd' element={<Jdmail/>}/>
         <Route path="/filldetails" element= {<FormDetails/>} />
       </Routes>
     </BrowserRouter>

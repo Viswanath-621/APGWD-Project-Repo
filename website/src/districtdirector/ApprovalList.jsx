@@ -50,7 +50,8 @@ const ApprovalList = (props) => {
               .map((city, index) => {
                 const isRed = city.finalvalue === null && city.value !== null;
                 // Split the update information
-                const updateInfo = city.updatetime.split("At ");
+                // const updateInfo = city.updatetime.split("At ");
+                const updateInfo = city.updatetime ? city.updatetime.split("At ") : ['', ''];
                 const updatedBy = updateInfo[0].trim();
                 const dateTime = updateInfo[1].trim();
 

@@ -16,7 +16,7 @@ const Welcome = () => {
   // const {userDistrict}=props.data;
   const location = useLocation();
   const userDistrict = location.state.district;
-  const editname=location.state.name;
+  const editname = location.state.name;
   // Define the fetchData function
   const fetchData = async () => {
     try {
@@ -40,7 +40,7 @@ const Welcome = () => {
       const response = await axios.post("http://localhost:8000/update", {
         cityId: city._id,
         newValue: updateValues[city._id] || "", // Use the specific updateValue for the city
-        editname
+        editname,
       });
 
       if (response.data.success) {
@@ -95,32 +95,40 @@ const Welcome = () => {
     setShowLatLngBody(true);
   };
 
- 
   return (
     <div>
       <Navibar />
       <div className="admin-land">
-      <div className="weltext">
-              <h1>
-                Select Any One&nbsp;<p>Option </p> From Below
-              </h1>
-            </div>
-            <div className="buttons-da">
-              <button
-                className="button-56"
-                onClick={handleFormButtonClick}
-                role="button"
-              >
-                Enter details via form
-              </button>
-              <button className="button-56"  onClick={handleExcelButtonClick} role="button">
-                Upload details via Excel file
-              </button>
-            
-              <button className="button-56" onClick={handleLatLngButtonClick} role="button">
-                Lattitude and Longitude
-              </button>
-            </div></div>
+        <div className="weltext">
+          <h1>
+            Select Any One&nbsp;<p>Option </p> From Below
+          </h1>
+        </div>
+        <div className="buttons-da">
+          <button
+            className="button-56"
+            onClick={handleFormButtonClick}
+            role="button"
+          >
+            Enter details via form
+          </button>
+          <button
+            className="button-56"
+            onClick={handleExcelButtonClick}
+            role="button"
+          >
+            Upload details via Excel file
+          </button>
+
+          <button
+            className="button-56"
+            onClick={handleLatLngButtonClick}
+            role="button"
+          >
+            Lattitude and Longitude
+          </button>
+        </div>
+      </div>
       {/* <div className={`wrapper`}>
         <div className={`login-text ${isExpanded ? "expand" : ""}`}>
           <button className="cta" onClick={handleButtonClick}>
@@ -139,15 +147,12 @@ const Welcome = () => {
       </div> */}
 
       <div>
-      {showForm ? (
-      <div className="body">
-      
-        <div className="container" id="container">
-          
-          <h1>Enter the city</h1>
-            <div className="emplo-city">
-
-            <button className="btn-search" type="button">
+        {showForm ? (
+          <div className="body">
+            <div className="container" id="container">
+              <h1>Enter the city</h1>
+              <div className="emplo-city">
+                <button className="btn-search" type="button">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -157,55 +162,72 @@ const Welcome = () => {
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
                   </svg>
                 </button>
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="input-p"
-            /></div>
+                <input
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="input-p"
+                />
+              </div>
 
-            <br />
-            <center >
-        <div className="admin-das">
-            
-            {district
-              .filter((city) => city.name.includes(search))
-              .map((city) => (
-                <div
-                  key={city._id}
-                  style={{
-                    padding: "10px",
-                    color: city.value === null ? "red" : "green",
-                  }}
-                > <div className="admina">
-                  <h3>{city.name} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u style={{color: "black"}}>Value:</u> {city.value}</h3>
-                  
-                  
-                  {/* Input for updating value */}
-                  
-                  {city.value === null && (
-                    <>
-                      <input
-                        type="text"
-                        value={updateValues[city._id] || ""}
-                        onChange={(e) =>
-                          setUpdateValues({
-                            ...updateValues,
-                            [city._id]: e.target.value,
-                          })
-                        }
-                      />
-                      <button onClick={() => handleUpdate(city)}>
-                        Update Value
-                      </button>
-                    </>
-                  )}</div>
+              <br />
+              <center>
+                <div className="admin-das">
+                  {district
+                    .filter((city) => city.name.includes(search))
+                    .map((city) => (
+                      <div
+                        key={city._id}
+                        style={{
+                          padding: "10px",
+                          color: city.value === null ? "red" : "green",
+                        }}
+                      >
+                        {" "}
+                        <div className="admina">
+                          <h3>
+                            {city.name} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <u style={{ color: "black" }}>Value:</u>{" "}
+                            {city.value}
+                          </h3>
+                          {city.image && (
+                            <img
+                              src={city.image}
+                              alt={`Image for ${city.name}`}
+                              style={{
+                                maxWidth: "100%",
+                                maxHeight: "100px",
+                                marginTop: "10px",
+                              }}
+                            />
+                          )}
+
+                          {/* Input for updating value */}
+
+                          {city.value === null && (
+                            <>
+                              <input
+                                type="text"
+                                value={updateValues[city._id] || ""}
+                                onChange={(e) =>
+                                  setUpdateValues({
+                                    ...updateValues,
+                                    [city._id]: e.target.value,
+                                  })
+                                }
+                              />
+                              <button onClick={() => handleUpdate(city)}>
+                                Update Value
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    ))}
                 </div>
-              ))}</div>
-              
-          </center>
-          
-          {/* <div class="overlay-container">
+              </center>
+
+              {/* <div class="overlay-container">
             <div class="overlay">
               <div class="overlay-panel overlay-right">
                 <h1>Hello, Employee!</h1>
@@ -215,33 +237,31 @@ const Welcome = () => {
             </div>
           </div> */}
 
-{/* <div className="form-container "> */}
-            
-            
-        {/* </div> */}
+              {/* <div className="form-container "> */}
 
-
-        </div>
-        </div>
+              {/* </div> */}
+            </div>
+          </div>
         ) : null}
       </div>
 
       <div>
-      {showUploadBody && (
-        <div className="Excel-da">
+        {showUploadBody && (
+          <div className="Excel-da">
             <h1>Ohh bulliguva RDX2.0</h1>
-        </div>
+          </div>
         )}
       </div>
 
       <div>
-      {showLatLngBody && (
-        <div className="Latt-da">
-          <h1>Hello AP; Bye Bye YCP !</h1>
-        </div>)}
+        {showLatLngBody && (
+          <div className="Latt-da">
+            <h1>Hello AP; Bye Bye YCP !</h1>
+          </div>
+        )}
       </div>
       <div className="welcfoot">
-      <Foot/>
+        <Foot />
       </div>
     </div>
   );

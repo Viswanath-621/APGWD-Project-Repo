@@ -385,6 +385,62 @@ app.post("/employeetransfer", async (req, res) => {
   }
 });
 
+
+//admin submits all the values
+app.post('/adminsubmitall', async (req, res) => {
+  const { cityIds } = req.body;
+
+  try {
+    for (const cityId of cityIds) {
+      const city = await District.findById(cityId);
+
+      if (city) {
+        await District.findByIdAndUpdate(cityId, { finalvalue: city.value });
+      } else {
+        console.error(`City with ID ${cityId} not found`);
+      }
+    }
+
+    res.json({ success: true, message: 'Submit all successful' });
+  } catch (error) {
+    console.error('Error submitting all:', error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+
+//admin cancel all the values
+app.post('/admincancelall', async (req, res) => {
+  const { cityIds } = req.body;
+
+  try {
+    for (const cityId of cityIds) {
+      const city = await District.findById(cityId);
+
+      if (city) {
+        await District.findByIdAndUpdate(cityId, { finalvalue: null, value: null });
+      } else {
+        console.error(`City with ID ${cityId} not found`);
+      }
+    }
+
+    res.json({ success: true, message: 'Submit all successful' });
+  } catch (error) {
+    console.error('Error submitting all:', error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+app.get('/getalldd', async (req, res) => {
+  try {
+    const admins = await User.find({ designation: 'admin' });
+    res.json(admins);
+  } catch (error) {
+    console.error('Error finding admins:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 // app.listen(3001, () => {
 //     console.log("sever is running" )
 // })
