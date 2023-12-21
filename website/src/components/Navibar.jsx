@@ -1,19 +1,9 @@
-import React from "react";
-import Login from "./Auth/Login";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navibar() {
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
-
-  const handleLogout = () => {
-    // Implement your logout logic, e.g., clear local storage, update state, etc.
-    setIsLoggedIn(false);
-    setUsername('');
-  };
-
+function Navibar({ isLoggedIn = false, username = "", handleLogout = () => {} }) {
+  
+  console.log("us", isLoggedIn, username,handleLogout)
   return (
     <div className="navi">
       <div className="container-fluid">
@@ -25,9 +15,7 @@ function Navibar() {
 
         <div className="page-title">
           <p className="lead">Government of Andhra Pradesh</p>
-
           <h2>Ground Water & Water Audit Department</h2>
-
           <p className="lead">Water Resource Department</p>
         </div>
 
@@ -36,11 +24,11 @@ function Navibar() {
         </div>
 
         <div className="logind">
-          <div>
+        <div>
             {isLoggedIn ? (
               <>
-                <h1>Hi, {username}!</h1>
-                <h1 onClick={handleLogout}>Logout</h1>
+                <h4>Hi, {username}!</h4>
+                <button onClick={handleLogout}>{username}</button>
               </>
             ) : (
               <Link to="/login">Login Now</Link>
@@ -49,28 +37,6 @@ function Navibar() {
         </div>
       </div>
 
-      <div className="links-da">
-        <ul>
-          <li>
-            <a href="/">HOME</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/readmore/real-monitoring">NEWS</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/home?id=award">AWARDS</a>
-          </li>
-          <li>
-            <a href="https://apwrims.ap.gov.in/">APWRIMS</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/home?id=contact">CONTACT</a>
-          </li>
-          <li>
-            <a href="#about">ABOUT US</a>
-          </li>
-        </ul>
-      </div>
     </div>
   );
 }

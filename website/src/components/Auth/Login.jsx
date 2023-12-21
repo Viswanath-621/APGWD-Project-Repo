@@ -6,13 +6,17 @@ import Navibar from "../Navibar";
 
 import Admin from "../../pages/Admin";
 import Welcome from "../../pages/Welcome";
+import AdminNavBar from "../../pages/AdminNavBar";
+
 
 
 function Login() {
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  
+
 
   const [successState, setSuccessState] = useState(false);
   const [designation, setDesignation] = useState("");
@@ -27,53 +31,66 @@ function Login() {
       const response = await axios.post("http://localhost:8000/login", { username, password });
       console.log("Response from server:", response);
       const { success, message, designation, district, username: responseUsername } = response.data;
-  
+
       console.log(responseUsername); // Use the renamed variable here
       console.log(district, message, designation);
       console.log("success", success);
       setSuccessState(success);
-  
+
       if (success) {
         console.log('Login Successfully');
-  
+
         setGdistrict(district);
         setDesignation(designation);
         setus(responseUsername); // Use the renamed variable here
-  
+        setIsLoggedIn(true);
+
         console.log(gdistrict, 'D', designation);
-  
+
       } else {
         console.log(message);
       }
-  
+
     } catch (error) {
       console.error("Error during login:", error);
       // Handle error, show a message to the user, etc.
     }
   };
-  
+
   useEffect(() => {
     // Log the values after the component re-renders
     console.log(gdistrict, 'D', designation);
   }, [gdistrict, designation]);
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsername("");
+  };
+
   return (
     <div>
-      <Navibar />
+      {/* <Navibar isLoggedIn={isLoggedIn} username={username} /> */}
+      {/* <Navibar isLoggedIn={isLoggedIn} username={us} handleLogout={handleLogout} /> */}
+
+      <Navibar isLoggedIn={isLoggedIn} username={us} handleLogout={handleLogout} />
+
+
       {designation === "admin" && (
-        <Navigate to="/admin" replace={true} state={{ district: gdistrict,name:us }} />
+
+        <Navigate to="/admin" replace={true} state={{ district: gdistrict, name: us }} />
+
       )}
       {designation === "employee" && (
         <Navigate
           to="/employee"
           replace={true}
-          state={{ district: gdistrict,name:us }}
+          state={{ district: gdistrict, name: us }}
         />
       )}
 
-{
-        designation==='jd' && (<Navigate to="/jd" replace={true}/>)
-        
+      {
+        designation === 'jd' && (<Navigate to="/jd" replace={true} />)
+
       }
       <div className="login-container">
         <div className="login-content">
@@ -129,15 +146,15 @@ function Login() {
 }
 
 const AdminComponent = () => {
-    return ( <Admin/> )
-      {/* Add Admin-specific content here */}
-    
-  };
-  
-  const UserComponent = () => {
-    return ( <Welcome/>)
-  };
-  
+  return (<Admin />)
+  {/* Add Admin-specific content here */ }
+
+};
+
+const UserComponent = () => {
+  return (<Welcome />)
+};
+
 
 export default Login;
 

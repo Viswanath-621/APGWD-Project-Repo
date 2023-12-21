@@ -3,11 +3,10 @@ import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 
 import Navibar from "../components/Navibar";
+import AdminNavBar from "./AdminNavBar";
 import Foot from "../components/Foot";
 import { useNavigate } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const Welcome = () => {
   const [search, setSearch] = useState("");
@@ -94,41 +93,84 @@ const Welcome = () => {
     setShowUploadBody(false);
     setShowLatLngBody(true);
   };
+  const handleHomeClick = () => {
+    // Navigate to the home page
+    navigate("/")
+  };
+  
 
   return (
     <div>
-      <Navibar />
-      <div className="admin-land">
-        <div className="weltext">
-          <h1>
-            Select Any One&nbsp;<p>Option </p> From Below
-          </h1>
-        </div>
-        <div className="buttons-da">
+      {/* <Navibar /> */}
+      <AdminNavBar username={editname} />
+
+      <div className="links-da">
+        <ul>
+          <li>
           <button
-            className="button-56"
+              className="wierd"
+              role="button"
+              onClick={handleHomeClick}
+            >
+              Home
+            </button>
+          </li>
+          <li>
+          <button
+            className="wierd"
             onClick={handleFormButtonClick}
             role="button"
           >
             Enter details via form
           </button>
+          </li>
+          <li>
           <button
-            className="button-56"
+            className="wierd"
             onClick={handleExcelButtonClick}
             role="button"
           >
             Upload details via Excel file
           </button>
-
+          </li>
+          <li>
           <button
-            className="button-56"
+            className="wierd"
             onClick={handleLatLngButtonClick}
             role="button"
           >
             Lattitude and Longitude
           </button>
-        </div>
+          </li>
+          <li>
+          <button
+           className="wierd"
+            onClick={handleLatLngButtonClick}
+            role="button"
+          >
+            User Profile
+          </button>
+          </li>
+          {/* <li>
+            <a href="#about">ABOUT US</a>
+          </li> */}
+        </ul>
       </div>
+
+      <div className="Admin-title">
+        <h1>
+          Welcome, {userDistrict} Employee {editname} 
+        </h1>
+        </div>
+
+
+
+      {/* <div className="admin-land">
+        <div className="weltext">
+          
+        </div>
+        
+      </div> */}
       {/* <div className={`wrapper`}>
         <div className={`login-text ${isExpanded ? "expand" : ""}`}>
           <button className="cta" onClick={handleButtonClick}>
@@ -196,8 +238,8 @@ const Welcome = () => {
                               alt={`Image for ${city.name}`}
                               style={{
                                 maxWidth: "100%",
-                                maxHeight: "100px",
-                                marginTop: "10px",
+                                maxHeight: "60px",
+                                
                               }}
                             />
                           )}
@@ -248,7 +290,7 @@ const Welcome = () => {
       <div>
         {showUploadBody && (
           <div className="Excel-da">
-            <h1>Ohh bulliguva RDX2.0</h1>
+            <h1>Need to create the button </h1>
           </div>
         )}
       </div>
@@ -256,7 +298,7 @@ const Welcome = () => {
       <div>
         {showLatLngBody && (
           <div className="Latt-da">
-            <h1>Hello AP; Bye Bye YCP !</h1>
+            <h1>Need to use phone locatiosn</h1>
           </div>
         )}
       </div>
