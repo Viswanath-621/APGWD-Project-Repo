@@ -6,9 +6,13 @@ import Transfer from "../districtdirector/Transfer";
 import PendingList from "../districtdirector/PendingList";
 import ApprovalList from "../districtdirector/ApprovalList";
 import DDupdate from "../districtdirector/DDupdate";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import Foot from "../components/Foot";
+import Heroland from "../components/Herosec";
+import AdminNavBar from "./AdminNavBar";
 
 const Admin = () => {
   const [search, setSearch] = useState("");
@@ -16,7 +20,7 @@ const Admin = () => {
   const [district, setDistrict] = useState([]);
   const [checkedRecords, setCheckedRecords] = useState({});
   const [selectAll, setSelectAll] = useState(false);
-
+  const navigate = useNavigate();
   const location = useLocation();
   const userName = location.state.name;
   const userDistrict = location.state.district;
@@ -154,6 +158,11 @@ const Admin = () => {
   const [showNewEmpBody, setshowNewEmpBody] = useState(false);
   const [showNewStatBody, setshowNewStatBody] = useState(false);
 
+  const handleHomeClick = () => {
+    // Navigate to the home page
+    navigate("/")
+  };
+
   const handleEmployeeButtonClick = () => {
     // navigate("/filldetails");
     setshowEmployeeForm(true);
@@ -210,15 +219,86 @@ const Admin = () => {
 
   return (
     <div>
-      <Navibar />
+      <AdminNavBar username={userName} />
+      <div className="links-da">
+        <ul>
+          <li>
+            <button
+              className="wierd"
+              role="button"
+              onClick={handleHomeClick}
+            >
+              Home
+            </button>
 
-      <div className="admin-land">
+          </li>
+          <li>
+            <button
+              className="wierd"
+              role="button"
+              onClick={handleEmployeeButtonClick}
+            >
+              Employee values
+            </button>
+          </li>
+          <li>
+            <button
+              className="wierd"          // onClick={handleExcelButtonClick}
+              role="button"
+              onClick={handleTransferButtonClick}
+            >
+              Transfer
+            </button>
+          </li>
+          <li>
+            <button
+              className="wierd"
+              // onClick={handleLatLngButtonClick}
+              role="button"
+              onClick={handlePendingButtonClick}
+            >
+              Pending List
+            </button>
+          </li>
+          <li>
+            <button
+              className="wierd"
+              // onClick={handleLatLngButtonClick}
+              role="button"
+              onClick={handleNewEmpButtonClick}
+            >
+              {" "}
+              Approval List
+            </button>
+          </li>
+          <li>
+            <button
+              className="wierd"
+              // onClick={handleLatLngButtonClick}
+              role="button"
+              onClick={handleUploadButtonClick}
+            >
+              Update
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div className="Admin-title">
+        <h1>
+          Welcome, {userDistrict} District Director {userName}
+        </h1>
+      </div>
+
+
+
+      {/* <div className="admin-land">
         <div className="weltext">
-          <h1>
-            Select Any One&nbsp;<p>Option </p> From Below
-          </h1>
-        </div>
-        <div className="buttons-da">
+          
+        </div> */}
+
+
+      {/* <div className="buttons-da">
           <button
             className="button-56"
             // onClick={handleFormButtonClick}
@@ -274,8 +354,10 @@ const Admin = () => {
           >
             new station
           </button>
-        </div>
-      </div>
+        </div> */}
+
+
+      {/* </div> */}
       {/* <div className={`wrapper`}>
         <div className={`login-text ${isExpanded ? "expand" : ""}`}>
           <button className="cta" onClick={handleButtonClick}>
@@ -410,19 +492,19 @@ const Admin = () => {
                     );
                   })}
 
-                
+
               </tbody>
-              
+
             </table>
           </div>
           <div className='bulk-da'>
-                  <button onClick={() => handleBulkAction("submitall")}>
-                    Submit Selected
-                  </button>
-                  <button onClick={() => handleBulkAction("cancelall")}>
-                    Cancel Selected
-                  </button>
-                </div>
+            <button onClick={() => handleBulkAction("submitall")}>
+              Submit Selected
+            </button>
+            <button onClick={() => handleBulkAction("cancelall")}>
+              Cancel Selected
+            </button>
+          </div>
         </div>
       ) : null}
 
@@ -430,6 +512,7 @@ const Admin = () => {
       {showPendingBody ? <PendingList data={userDistrict} /> : null}
       {showNewEmpBody ? <ApprovalList data={userDistrict} /> : null}
       {showUploadBody ? <DDupdate data={{ userDistrict, userName }} /> : null}
+      <Foot />
     </div>
   );
 };

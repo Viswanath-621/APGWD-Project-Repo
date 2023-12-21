@@ -794,15 +794,23 @@ form {
   font-size: 23px;
 }
 
+.wierd{
+  border-radius: 10px;
+  /* width: auto; */
+  padding: 10px 11px;
+  background-color: transparent;
+  font-size:14px
+}
 .weltext p{
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 900;
   /* color:rgba(200, 12, 56, 0.6);  */
   color: #000;
   text-decoration: underline; 
   text-underline-offset: 5px;
-  font-family: 'Whisper', cursive;
+  /* font-family: 'Whisper', cursive; */
   top: 0;
+  text-transform: uppercase;
   padding-left: 6px;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -1415,4 +1423,16 @@ blockquote:after {
   margin: 10px;
   padding: 3px;
   /* border-right: 1px solid #000; */
+}
+
+.Admin-title {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+.Admin-title h1 {
+  text-align: center; /* Optional: Center the text within the h1 element */
+  text-transform: capitalize;
+  padding-top: 18px;
 }

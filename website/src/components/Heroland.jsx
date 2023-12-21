@@ -2,31 +2,9 @@ import React from "react";
 import AlertLineIcon from "remixicon-react/AlertLineIcon";
 import AlertFillIcon from "remixicon-react/AlertFillIcon";
 
-function Herosec() {
+function Heroland() {
   return (
     <div className="hero-main">
-      <div className="links-da">
-        <ul>
-          <li>
-            <a href="/">HOME</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/readmore/real-monitoring">NEWS</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/home?id=award">AWARDS</a>
-          </li>
-          <li>
-            <a href="https://apwrims.ap.gov.in/">APWRIMS</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/home?id=contact">CONTACT</a>
-          </li>
-          <li>
-            <a href="#about">ABOUT US</a>
-          </li>
-        </ul>
-      </div>
       <section className="viswa-hero-section">
         <div className="hero-text">
           <h5>#1 Project</h5>
@@ -55,4 +33,4 @@ function Herosec() {
   );
 }
 
-export default Herosec;
+export default Heroland;
