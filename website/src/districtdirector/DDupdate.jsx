@@ -11,7 +11,7 @@ const DDupdate = (props) => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/ddretrieve',{params:{userDistrict}});
+      const response = await axios.get('https://apgwd-backend-server.onrender.com/ddretrieve',{params:{userDistrict}});
       setDistrict(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -26,7 +26,7 @@ const DDupdate = (props) => {
   const handleUpdate = async (city) => {
     try {
         console.log(editname);
-      const response = await axios.post('http://localhost:8000/ddupdate', {
+      const response = await axios.post('https://apgwd-backend-server.onrender.com/ddupdate', {
         cityId: city._id,
         newValue: updateValues[city._id] || '', // Use the specific updateValue for the city
         editname

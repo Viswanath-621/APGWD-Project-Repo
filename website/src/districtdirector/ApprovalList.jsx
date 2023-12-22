@@ -9,7 +9,7 @@ const ApprovalList = (props) => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/approvallist',{params:{userDistrict}});
+      const response = await axios.get('https://apgwd-backend-server.onrender.com/approvallist',{params:{userDistrict}});
       setDistrict(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);

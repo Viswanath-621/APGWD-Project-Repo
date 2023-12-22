@@ -12,7 +12,7 @@ function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/signup", {name, email, password })
+        axios.post("https://apgwd-backend-server.onrender.com/signup", {name, email, password })
         .then(res => {console.log(res)
             navigate('/login')
         })

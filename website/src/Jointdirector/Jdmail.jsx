@@ -7,7 +7,7 @@ import Foot from '../components/Foot'
 
 const fetchallwell = async (userDistrict) => {
   try {
-    const response = await axios.get('http://localhost:8000/pendinglist', {
+    const response = await axios.get('https://apgwd-backend-server.onrender.com/pendinglist', {
       params: { userDistrict },
     });
     console.log(response.data);
@@ -39,7 +39,7 @@ const Jdmail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/getalldd');
+        const response = await axios.get('https://apgwd-backend-server.onrender.com/getalldd');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error.message);

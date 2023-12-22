@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 
-const ProfileForm = () => {
+const FormDetails = () => {
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -58,17 +58,17 @@ const ProfileForm = () => {
           </label>
           <div className="input-container">
             <label>
-              Name:
+              Name: &nbsp;&nbsp;
               <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
             </label>
             <label>
-              Surname:
+              Surname: &nbsp;&nbsp;
               <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
             </label>
           </div>
           <div className="input-container">
             <label>
-              Address:
+              Address: &nbsp;&nbsp;
               <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
             </label>
           </div>
@@ -86,9 +86,12 @@ const ProfileForm = () => {
       {!editMode && submittedData && (
         <div className="submitted-details">
           <h2>Your Details</h2>
-          <p>Name: {submittedData.name}</p>
-          <p>Surname: {submittedData.surname}</p>
-          <p>Address: {submittedData.address}</p>
+          <div className="uploaded-image-container">
+            <img src={URL.createObjectURL(submittedData.photo)} alt="Uploaded" style={{ width: '90px', height: '90px', borderRadius: '20%' }} />
+          </div>
+          <p>Name: &nbsp; {submittedData.name}</p>
+          <p>Surname: &nbsp;{submittedData.surname}</p>
+          <p>Address: &nbsp;{submittedData.address}</p>
           <div className="button-container">
             <button type="button" onClick={handleEdit}>
               Edit
@@ -100,4 +103,4 @@ const ProfileForm = () => {
   );
 };
 
-export default ProfileForm;
+export default FormDetails;

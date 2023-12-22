@@ -1521,7 +1521,7 @@ blockquote:after {
 .profile-form-container .input-container {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
   margin-bottom: 10px; /* Add margin between input containers */
   position: relative;
 
@@ -1585,4 +1585,18 @@ blockquote:after {
   text-align: center;
   position: relative;
  
+}
+
+.wierd-ad {
+  max-width: 12%;
+  display: flex; /* Add this line */
+  justify-content: center;
+  margin: 1px auto;
+  padding: 8px;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 15px;
+  font-family: Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
 }
