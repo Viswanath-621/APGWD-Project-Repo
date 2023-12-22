@@ -6,6 +6,7 @@ import Navibar from "../components/Navibar";
 import AdminNavBar from "./AdminNavBar";
 import Foot from "../components/Foot";
 import { useNavigate } from "react-router-dom";
+import FormDetails from "./FormDetails";
 
 
 const Welcome = () => {
@@ -70,7 +71,7 @@ const Welcome = () => {
   };
 
   const navigate = useNavigate();
-
+  const [showUserProfile, setShowUserProfile] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showUploadBody, setShowUploadBody] = useState(false);
   const [showLatLngBody, setShowLatLngBody] = useState(false);
@@ -80,18 +81,30 @@ const Welcome = () => {
     setShowForm(true);
     setShowUploadBody(false);
     setShowLatLngBody(false);
+    setShowUserProfile(false);
   };
 
   const handleExcelButtonClick = () => {
     setShowForm(false);
     setShowUploadBody(true);
     setShowLatLngBody(false);
+    setShowUserProfile(false);
+
   };
 
   const handleLatLngButtonClick = () => {
     setShowForm(false);
     setShowUploadBody(false);
     setShowLatLngBody(true);
+    setShowUserProfile(false);
+
+  };
+  const handleUserButtonClick = () => {
+    setShowForm(false);
+    setShowUploadBody(false);
+    setShowLatLngBody(false);
+    setShowUserProfile(true);
+
   };
   const handleHomeClick = () => {
     // Navigate to the home page
@@ -145,7 +158,7 @@ const Welcome = () => {
           <li>
           <button
            className="wierd"
-            onClick={handleLatLngButtonClick}
+            onClick={handleUserButtonClick}
             role="button"
           >
             User Profile
@@ -298,8 +311,13 @@ const Welcome = () => {
       <div>
         {showLatLngBody && (
           <div className="Latt-da">
-            <h1>Need to use phone locatiosn</h1>
+            <h1>Need to use phone location</h1>
           </div>
+        )}
+      </div>
+      <div>
+      {showUserProfile && (
+          <FormDetails />
         )}
       </div>
       <div className="welcfoot">

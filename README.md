@@ -23,7 +23,7 @@
     <li>Navigate to the project directory.</li>
     <li>Install the required dependencies by running <code>npm install</code>.</li>
     <li>Configure the backend by setting up the MongoDB connection and authentication system.</li>
-    <li>Start the application by running <code>npm start</code>.</li>
+    <li>Start the front end application by running <code>npm run dev</code> and backend application by npm start.</li>
     <li>Access the application in your web browser at <code>http://localhost:3000</code>.</li>
   </ol>
   <h2>Contributing</h2>
