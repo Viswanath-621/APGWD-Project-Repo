@@ -1436,3 +1436,153 @@ blockquote:after {
   text-transform: capitalize;
   padding-top: 18px;
 }
+.profile-form-container 
+{
+  display: flex;
+  background-color:yellow;
+  max-width: 800px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.profile-form-container .sidebar {
+  width: 30%;
+  padding: 20px;
+  background-color: #f1f1f1; /* Light grey color for the sidebar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+}
+
+.profile-form-container .profile-details {
+  margin-bottom: 20px;
+  position: relative;
+
+}
+
+.profile-form-container h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  position: relative;
+
+}
+
+.profile-form-container .links a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  position: relative;
+
+  transition: background-color 0.3s;
+}
+
+.profile-form-container .links a:hover {
+  background-color: #ddd;
+  position: relative;
+
+}
+
+.profile-form-container .form-container {
+  width: 70%;
+  position: relative;
+  padding: 20px;
+}
+
+.profile-form-container .upload-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+
+}
+
+.profile-form-container .upload-container span {
+  font-weight: bold;
+  position: relative;
+
+}
+
+.profile-form-container .example-image-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+
+}
+
+.profile-form-container .example-image-container span {
+  font-weight: bold;
+  position: relative;
+
+}
+
+.profile-form-container .input-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px; /* Add margin between input containers */
+  position: relative;
+
+}
+
+.profile-form-container .input-container input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+
+}
+
+.profile-form-container .button-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  margin-top: 15px;
+}
+
+.profile-form-container button {
+  padding: 12px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  position: relative;
+
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.profile-form-container button:hover {
+  background-color: #45a049;
+  position: relative;
+
+}
+.profile-form-container .submitted-details {
+  
+  padding: 80px;
+  border-radius: 8px;
+  margin-bottom: 0px;
+  text-align: center;
+  align-items: center;
+  background-color:#fff;
+  max-width: 800px;
+  margin: 20px auto;
+  position: relative;
+  
+}
+
+.profile-form-container .no-details-message {
+  background-color: #ffffff;
+  padding: 120px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+ 
+}
