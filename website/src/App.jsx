@@ -9,6 +9,11 @@ import Jdmail from './Jointdirector/Jdmail';
 
 function App() {
 
+  // imp notes: 
+
+  // Render Backend api: "https://apgwdback.onrender.com"
+  // Render Fronend temp link: "https://apgwdfron.onrender.com/"
+  
   return (
     <BrowserRouter>
       <Routes>

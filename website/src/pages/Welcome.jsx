@@ -20,7 +20,7 @@ const Welcome = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/employeeretrieve",
+        "https://apgwdback.onrender.com/employeeretrieve",
         { params: { userDistrict } }
       );
       setDistrict(response.data);
@@ -36,7 +36,7 @@ const Welcome = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post("http://localhost:8000/update", {
+      const response = await axios.post("https://apgwdback.onrender.com/update", {
         cityId: city._id,
         newValue: updateValues[city._id] || "", // Use the specific updateValue for the city
         editname,

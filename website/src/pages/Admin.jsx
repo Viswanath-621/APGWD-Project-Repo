@@ -27,7 +27,9 @@ const Admin = () => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/adminretrieve", {
+      // const response = await axios.get("http://localhost:8000/adminretrieve", {
+      
+      const response = await axios.get("https://apgwdback.onrender.com/adminretrieve", {
         params: { userDistrict },
       });
       setDistrict(response.data);
@@ -43,7 +45,7 @@ const Admin = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post("http://localhost:8000/adminupdate", {
+      const response = await axios.post("https://apgwdback.onrender.com/adminupdate", {
         cityId: city._id,
         newValue: city.value, // Use the specific updateValue for the city
       });
@@ -61,7 +63,7 @@ const Admin = () => {
 
   const handleCancel = async (city) => {
     try {
-      const response = await axios.post("http://localhost:8000/admincancel", {
+      const response = await axios.post("https://apgwdback.onrender.com/admincancel", {
         cityId: city._id,
       });
 
@@ -119,7 +121,7 @@ const Admin = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/admin${action}`,
+        `https://apgwdback.onrender.com/admin${action}`,
         {
           cityIds: selectedCityIds,
         }
