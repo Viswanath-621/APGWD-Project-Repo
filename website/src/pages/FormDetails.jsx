@@ -15,13 +15,28 @@ const FormDetails = () => {
     setPhoto(file);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to handle form submission (e.g., send data to server)
-    const submittedInfo = { photo, name, surname, address };
-    console.log('Form submitted:', submittedInfo);
-    setSubmittedData(submittedInfo);
-    setEditMode(false); // Switch to view mode after submission
+  
+    try {
+      const formData = new FormData();
+      formData.append('photo', photo);
+  
+      // Send the image file to the server, include the username in the URL
+      await fetch(`http://localhost:8000/profileupload/${name}`, {
+        method: 'POST',
+        body: formData,
+      });
+  
+      // Add logic to handle other form fields and submission (if needed)
+  
+      const submittedInfo = { photo, name, surname, address };
+      console.log('Form submitted:', submittedInfo);
+      setSubmittedData(submittedInfo);
+      setEditMode(false); // Switch to view mode after submission
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
   };
 
   const handleEdit = () => {
@@ -59,19 +74,23 @@ const FormDetails = () => {
           <div className="input-container">
             <label>
               Name: &nbsp;&nbsp;
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+              <input  placeholder="Enter Name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
             </label>
             <label>
               Surname: &nbsp;&nbsp;
-              <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
+              <input  placeholder="Enter Surname" type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
             </label>
           </div>
           <div className="input-container">
             <label>
               Address: &nbsp;&nbsp;
-              <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
+              <input  placeholder="Enter Address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
             </label>
+            <label>
+            About: &nbsp;&nbsp;
+            <input placeholder="Describe yourself" style={{height: "70px"}}/></label>
           </div>
+          
           <div className="button-container">
             <button type="submit">Submit</button>
           </div>

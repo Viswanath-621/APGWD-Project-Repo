@@ -30,7 +30,10 @@ const UserSchema = new mongoose.Schema({
       rcount:{
         type:String,
         required:true,
-      }  
+      },
+      photo:{
+        type: String,
+      } 
 });
 
 const User = mongoose.model('User',UserSchema);

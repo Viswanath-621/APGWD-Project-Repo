@@ -6,6 +6,7 @@ import Welcome from "./pages/Welcome";
 import Admin from "./pages/Admin";
 import FormDetails from "./pages/FormDetails";
 import Jdmail from './Jointdirector/Jdmail';
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path='/jd' element={<Jdmail/>}/>
         <Route path="/filldetails" element= {<FormDetails/>} />
+        <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </BrowserRouter>
   );
