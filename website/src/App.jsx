@@ -6,9 +6,17 @@ import Welcome from "./pages/Welcome";
 import Admin from "./pages/Admin";
 import FormDetails from "./pages/FormDetails";
 import Jdmail from './Jointdirector/Jdmail';
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
 
+  // imp notes: 
+
+  // Render Temp Backend api: "https://apgwdback.onrender.com"
+  // Render  Temp Fronend temp link: "https://apgwdfron.onrender.com/"
+
+  //Render Final Backend api: "https://apgwd-backend-server.onrender.com"
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -19,6 +27,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path='/jd' element={<Jdmail/>}/>
         <Route path="/filldetails" element= {<FormDetails/>} />
+        <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </BrowserRouter>
   );

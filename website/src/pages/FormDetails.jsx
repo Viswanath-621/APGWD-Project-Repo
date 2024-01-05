@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 
-const ProfileForm = () => {
+const FormDetails = () => {
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -15,13 +15,28 @@ const ProfileForm = () => {
     setPhoto(file);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to handle form submission (e.g., send data to server)
-    const submittedInfo = { photo, name, surname, address };
-    console.log('Form submitted:', submittedInfo);
-    setSubmittedData(submittedInfo);
-    setEditMode(false); // Switch to view mode after submission
+  
+    try {
+      const formData = new FormData();
+      formData.append('photo', photo);
+  
+      // Send the image file to the server, include the username in the URL
+      await fetch(`http://localhost:8000/profileupload/${name}`, {
+        method: 'POST',
+        body: formData,
+      });
+  
+      // Add logic to handle other form fields and submission (if needed)
+  
+      const submittedInfo = { photo, name, surname, address };
+      console.log('Form submitted:', submittedInfo);
+      setSubmittedData(submittedInfo);
+      setEditMode(false); // Switch to view mode after submission
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
   };
 
   const handleEdit = () => {
@@ -58,20 +73,24 @@ const ProfileForm = () => {
           </label>
           <div className="input-container">
             <label>
-              Name:
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+              Name: &nbsp;&nbsp;
+              <input  placeholder="Enter Name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
             </label>
             <label>
-              Surname:
-              <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
+              Surname: &nbsp;&nbsp;
+              <input  placeholder="Enter Surname" type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
             </label>
           </div>
           <div className="input-container">
             <label>
-              Address:
-              <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
+              Address: &nbsp;&nbsp;
+              <input  placeholder="Enter Address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
             </label>
+            <label>
+            About: &nbsp;&nbsp;
+            <input placeholder="Describe yourself" style={{height: "70px"}}/></label>
           </div>
+          
           <div className="button-container">
             <button type="submit">Submit</button>
           </div>
@@ -86,9 +105,12 @@ const ProfileForm = () => {
       {!editMode && submittedData && (
         <div className="submitted-details">
           <h2>Your Details</h2>
-          <p>Name: {submittedData.name}</p>
-          <p>Surname: {submittedData.surname}</p>
-          <p>Address: {submittedData.address}</p>
+          <div className="uploaded-image-container">
+            <img src={URL.createObjectURL(submittedData.photo)} alt="Uploaded" style={{ width: '90px', height: '90px', borderRadius: '20%' }} />
+          </div>
+          <p>Name: &nbsp; {submittedData.name}</p>
+          <p>Surname: &nbsp;{submittedData.surname}</p>
+          <p>Address: &nbsp;{submittedData.address}</p>
           <div className="button-container">
             <button type="button" onClick={handleEdit}>
               Edit
@@ -100,4 +122,4 @@ const ProfileForm = () => {
   );
 };
 
-export default ProfileForm;
+export default FormDetails;

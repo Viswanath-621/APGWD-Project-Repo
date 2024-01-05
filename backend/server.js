@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const multer = require('multer');
 const cors = require("cors");
 
 const AuthModel = require("./models/Auth");
@@ -11,6 +12,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+
 
 // mongoose.connect("mongodb+srv://apgwd:apgwd@apgwd.q3uwssp.mongodb.net/data?retryWrites=true&w=majority")
 mongoose
@@ -24,10 +27,25 @@ mongoose
     console.log(err);
   });
 
+const storage = multer.memoryStorage(); // Store the file in memory
+const upload = multer({ storage: storage });
+
 app.post("/signup", (req, res) => {
   AuthModel.create(req.body)
     .then((auth) => res.json(auth))
     .catch((err) => res.json(err));
+});
+
+// check this 
+app.post('/profileupload/:username', upload.single('photo'), async (req, res) => {
+  try {
+    const { username } = req.params;
+    const user = await User.findOneAndUpdate({ username }, { photo: req.file.buffer.toString('base64') });
+    res.status(200).json({ message: 'File uploaded successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
 // app.post("/login", (req,res) => {

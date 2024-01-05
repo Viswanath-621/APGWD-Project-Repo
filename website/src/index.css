@@ -604,7 +604,7 @@ form {
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: difference;
-  height: 80vh;
+  height: 90vh;
 }
 
 .login-content {
@@ -1443,6 +1443,7 @@ blockquote:after {
   max-width: 800px;
   margin: 20px auto;
   position: relative;
+  border-radius: 15px;
 }
 
 .profile-form-container .sidebar {
@@ -1451,6 +1452,7 @@ blockquote:after {
   background-color: #f1f1f1; /* Light grey color for the sidebar */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   position: relative;
+  border-radius: 15px;
 
 }
 
@@ -1521,9 +1523,11 @@ blockquote:after {
 .profile-form-container .input-container {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
   margin-bottom: 10px; /* Add margin between input containers */
   position: relative;
+  margin-top: 10px; /* Add margin between input containers */
+  
 
 }
 
@@ -1585,4 +1589,108 @@ blockquote:after {
   text-align: center;
   position: relative;
  
+}
+
+.wierd-ad {
+  max-width: 12%;
+  display: flex; /* Add this line */
+  justify-content: center;
+  margin: 1px auto;
+  padding: 8px;
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 15px;
+  font-family: Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+
+.body1 {
+  background: linear-gradient(to right, #0e427d,  #5bc8bd) !important;
+  height: 90vh
+}
+.body1 svg {
+  position: relative;
+  top: 55%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -400px;
+}
+.body1 .message-box {
+  height: 200px;
+  width: 380px;
+  position: absolute;
+  top: 60%;
+  left: 55%;
+  margin-top: -100px;
+  margin-left: 50px;
+  color: #ffffff;
+  font-family: Roboto;
+  font-weight: 300;
+}
+.body1 .message-box h1 {
+  font-size: 60px;
+  line-height: 46px;
+  margin-bottom: 40px;
+}
+.body1 .buttons-con .action-link-wrap {
+  margin-top: 40px;
+  /* display: flex; */
+}
+.body1 .buttons-con .action-link-wrap a {
+  background: #68c950;
+  padding: 8px 25px;
+  border-radius: 4px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px
+}
+.body1 .buttons-con .action-link-wrap a:hover {
+  background: #5A5C6C;
+  color: #fff;
+}
+
+#Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+  animation-delay: .2s; 
+}
+#Polygon-3 {
+  animation-delay: .4s; 
+}
+#Polygon-4 {
+  animation-delay: .6s; 
+}
+#Polygon-5 {
+  animation-delay: .8s; 
+}
+
+@keyframes float {
+	100% {
+    transform: translateY(20px);
+  }
+}
+
+@media (max-width: 450px) {
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -190px;
+  }
+  .message-box {
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -190px;
+    text-align: center;
+  }
 }

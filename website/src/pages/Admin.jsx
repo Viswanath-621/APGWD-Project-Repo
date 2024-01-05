@@ -13,6 +13,7 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Foot from "../components/Foot";
 import Heroland from "../components/Herosec";
 import AdminNavBar from "./AdminNavBar";
+import FormDetails from "./FormDetails";
 
 const Admin = () => {
   const [search, setSearch] = useState("");
@@ -27,7 +28,9 @@ const Admin = () => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/adminretrieve", {
+      // const response = await axios.get("http://localhost:8000/adminretrieve", {
+      
+      const response = await axios.get("https://apgwd-backend-server.onrender.com/adminretrieve", {
         params: { userDistrict },
       });
       setDistrict(response.data);
@@ -43,7 +46,7 @@ const Admin = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post("http://localhost:8000/adminupdate", {
+      const response = await axios.post("https://apgwd-backend-server.onrender.com/adminupdate", {
         cityId: city._id,
         newValue: city.value, // Use the specific updateValue for the city
       });
@@ -61,7 +64,7 @@ const Admin = () => {
 
   const handleCancel = async (city) => {
     try {
-      const response = await axios.post("http://localhost:8000/admincancel", {
+      const response = await axios.post("https://apgwd-backend-server.onrender.com/admincancel", {
         cityId: city._id,
       });
 
@@ -119,7 +122,7 @@ const Admin = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/admin${action}`,
+        `https://apgwd-backend-server.onrender.com/admin${action}`,
         {
           cityIds: selectedCityIds,
         }
@@ -157,6 +160,7 @@ const Admin = () => {
   const [showUploadBody, setShowUploadBody] = useState(false);
   const [showNewEmpBody, setshowNewEmpBody] = useState(false);
   const [showNewStatBody, setshowNewStatBody] = useState(false);
+  const [showAdminProfile, setShowAdminProfile] = useState(false);
 
   const handleHomeClick = () => {
     // Navigate to the home page
@@ -198,6 +202,16 @@ const Admin = () => {
     setShowUploadBody(true);
     setshowNewEmpBody(false);
     setshowNewStatBody(false);
+  };
+
+  const handleAdminButtonClick = () => {
+    setshowEmployeeForm(false);
+    setshowTransferBody(false);
+    setshowPendingBody(false);
+    setShowUploadBody(false);
+    setshowNewEmpBody(false);
+    setshowNewStatBody(false);
+    setShowAdminProfile(true);
   };
 
   const handleNewEmpButtonClick = () => {
@@ -281,6 +295,10 @@ const Admin = () => {
               Update
             </button>
           </li>
+
+          {/* <li>
+          
+          </li> */}
         </ul>
       </div>
 
@@ -288,6 +306,14 @@ const Admin = () => {
         <h1>
           Welcome, {userDistrict} District Director {userName}
         </h1>
+
+        <button
+           className="wierd-ad"
+            onClick={handleAdminButtonClick}
+            role="button"
+          >
+            Click Here To Check Your Profile
+          </button>
       </div>
 
 
@@ -512,6 +538,11 @@ const Admin = () => {
       {showPendingBody ? <PendingList data={userDistrict} /> : null}
       {showNewEmpBody ? <ApprovalList data={userDistrict} /> : null}
       {showUploadBody ? <DDupdate data={{ userDistrict, userName }} /> : null}
+      
+      {showAdminProfile && (
+          <FormDetails/>
+        )}
+      
       <Foot />
     </div>
   );
