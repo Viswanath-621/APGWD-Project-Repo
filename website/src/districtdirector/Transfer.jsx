@@ -27,7 +27,7 @@ const Transfer = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://apgwd-backend-server.onrender.com/employeetransfer', {
+      const response = await axios.post('https://apgwd-backend-service.onrender.com/employeetransfer', {
         username,
         transferto,
       });

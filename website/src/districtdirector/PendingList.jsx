@@ -8,7 +8,7 @@ const PendingList = (props) => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://apgwd-backend-server.onrender.com/pendinglist',{params:{userDistrict}});
+      const response = await axios.get('https://apgwd-backend-service.onrender.com/pendinglist',{params:{userDistrict}});
       setDistrict(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);

@@ -30,7 +30,7 @@ const Admin = () => {
     try {
       // const response = await axios.get("http://localhost:8000/adminretrieve", {
       
-      const response = await axios.get("https://apgwd-backend-server.onrender.com/adminretrieve", {
+      const response = await axios.get("https://apgwd-backend-service.onrender.com/adminretrieve", {
         params: { userDistrict },
       });
       setDistrict(response.data);
@@ -46,7 +46,7 @@ const Admin = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post("https://apgwd-backend-server.onrender.com/adminupdate", {
+      const response = await axios.post("https://apgwd-backend-service.onrender.com/adminupdate", {
         cityId: city._id,
         newValue: city.value, // Use the specific updateValue for the city
       });
@@ -64,7 +64,7 @@ const Admin = () => {
 
   const handleCancel = async (city) => {
     try {
-      const response = await axios.post("https://apgwd-backend-server.onrender.com/admincancel", {
+      const response = await axios.post("https://apgwd-backend-service.onrender.com/admincancel", {
         cityId: city._id,
       });
 
@@ -122,7 +122,7 @@ const Admin = () => {
 
     try {
       const response = await axios.post(
-        `https://apgwd-backend-server.onrender.com/admin${action}`,
+        `https://apgwd-backend-service.onrender.com/admin${action}`,
         {
           cityIds: selectedCityIds,
         }

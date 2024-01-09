@@ -48,7 +48,7 @@ const FormDetails = (props) => {
         }).catch((err) => {
           console.log(err)
         })
-        const response = await axios.post('http://localhost:8000/profileupload',{photo1,address,name,editname});
+        const response = await axios.post('https://apgwd-backend-service.onrender.com/profileupload',{photo1,address,name,editname});
 
   
       // Add logic to handle other form fields and submission (if needed)
