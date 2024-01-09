@@ -31,9 +31,15 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true,
       },
-      photo:{
+      image:{
         type: String,
+        required:false
+      } ,
+      address:{
+        type: String,
+        required:false
       } 
+
 });
 
 const User = mongoose.model('User',UserSchema);

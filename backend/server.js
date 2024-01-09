@@ -37,16 +37,45 @@ app.post("/signup", (req, res) => {
 });
 
 // check this 
-app.post('/profileupload/:username', upload.single('photo'), async (req, res) => {
+// app.post('/profileupload/:username', upload.single('photo'), async (req, res) => {
+//   try {
+//     const { username } = req.params;
+//     const user = await User.findOneAndUpdate({ username }, { photo: req.file.buffer.toString('base64') });
+//     res.status(200).json({ message: 'File uploaded successfully' });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+// });
+
+app.post('/profileupload', async (req, res) => {
   try {
-    const { username } = req.params;
-    const user = await User.findOneAndUpdate({ username }, { photo: req.file.buffer.toString('base64') });
+    const { photo1, address, name,editname } = req.body;
+    console.log(photo1, address, name);
+    
+    const user = await User.findOneAndUpdate(
+      { username: editname }, // Query to find the user by name
+      {
+        $set: {
+          image: photo1,
+          address: address,
+          username:name
+        }
+      },
+      { new: true } // Return the updated document
+    );
+
+    if (!user) {
+      console.log('fdfd0');
+    }
+
     res.status(200).json({ message: 'File uploaded successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 // app.post("/login", (req,res) => {
 //     const {email, password} = req.body;

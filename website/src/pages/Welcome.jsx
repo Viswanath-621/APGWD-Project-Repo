@@ -317,7 +317,7 @@ const Welcome = () => {
       </div>
       <div>
       {showUserProfile && (
-          <FormDetails />
+          <FormDetails editname={editname}/>
         )}
       </div>
       <div className="welcfoot">
