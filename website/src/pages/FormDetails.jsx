@@ -6,6 +6,7 @@ const FormDetails = () => {
   const [photo, setPhoto] = useState(null);
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
+  const [about, setAbout] = useState('');
   const [address, setAddress] = useState('');
   const [editMode, setEditMode] = useState(true);
   const [submittedData, setSubmittedData] = useState(null);
@@ -30,7 +31,7 @@ const FormDetails = () => {
   
       // Add logic to handle other form fields and submission (if needed)
   
-      const submittedInfo = { photo, name, surname, address };
+      const submittedInfo = { photo, name, surname, address,about };
       console.log('Form submitted:', submittedInfo);
       setSubmittedData(submittedInfo);
       setEditMode(false); // Switch to view mode after submission
@@ -52,7 +53,7 @@ const FormDetails = () => {
         </div>
         <div className="links">
           <a href="/login">Logout</a>
-          <a href="#">Change Password</a>
+          <a href="/chPass">Change Password</a>
         </div>
       </div>
 
@@ -88,7 +89,7 @@ const FormDetails = () => {
             </label>
             <label>
             About: &nbsp;&nbsp;
-            <input placeholder="Describe yourself" style={{height: "70px"}}/></label>
+            <input placeholder="Describe yourself" value={about} onChange={(e) => setAbout(e.target.value)} style={{height: "70px"}} required/></label>
           </div>
           
           <div className="button-container">
@@ -111,6 +112,7 @@ const FormDetails = () => {
           <p>Name: &nbsp; {submittedData.name}</p>
           <p>Surname: &nbsp;{submittedData.surname}</p>
           <p>Address: &nbsp;{submittedData.address}</p>
+          <p>About: &nbsp;{submittedData.about}</p>
           <div className="button-container">
             <button type="button" onClick={handleEdit}>
               Edit
