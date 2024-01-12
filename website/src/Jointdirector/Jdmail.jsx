@@ -5,9 +5,10 @@ import emailjs from 'emailjs-com';
 import Navbar from '../components/Navibar'
 import Foot from '../components/Foot'
 
+const JD_GET_PENDING = import.meta.env.VITE_DD_PENDING_ROUTE
 const fetchallwell = async (userDistrict) => {
   try {
-    const response = await axios.get('https://apgwd-backend-service.onrender.com/pendinglist', {
+    const response = await axios.get('JD_GET_PENDING', {
       params: { userDistrict },
     });
     console.log(response.data);
@@ -36,10 +37,11 @@ const sendEmail = (email, username, rcount, message, district) => {
 const Jdmail = () => {
   const [data, setData] = useState([]);
 
+  const GET_DD_DATA = import.meta.env.VITE_JD_GET_ALLDD_ROUTE
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://apgwd-backend-service.onrender.com/getalldd');
+        const response = await axios.get(GET_DD_DATA);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error.message);

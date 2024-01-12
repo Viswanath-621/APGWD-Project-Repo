@@ -7,6 +7,7 @@ const AuthModel = require("./models/Auth");
 
 const User = require("./db/user");
 const District = require("./db/district");
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -161,7 +162,26 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ error: "Login failed" });
   }
 });
+// app.post("/login", async (req, res) => {
+//   try {
+//     const { username, password } = req.body;
+//     const user = await User.findOne({ username });
 
+//     if (!user) {
+//       return res.status(401).json({ error: "Invalid username or password" });
+//     }
+
+//     const isMatch = await bcrypt.compare(password, user.password);
+
+//     if (!isMatch) {
+//       return res.status(401).json({ error: "Invalid username or password" });
+//     }
+
+//     // Rest of your login logic...
+//   } catch (error) {
+//     res.status(500).json({ error: "Login failed" });
+//   }
+// });
 //employee Retrieve
 app.get("/employeeretrieve", async (req, res) => {
   try {

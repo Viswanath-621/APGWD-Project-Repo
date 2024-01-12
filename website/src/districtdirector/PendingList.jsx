@@ -6,9 +6,10 @@ const PendingList = (props) => {
   const [district, setDistrict] = useState([]);
   const userDistrict=props.data;
   // Define the fetchData function
+  const DD_PENDING_LIST = import.meta.env.VITE_DD_PENDING_ROUTE
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://apgwd-backend-service.onrender.com/pendinglist',{params:{userDistrict}});
+      const response = await axios.get(DD_PENDING_LIST,{params:{userDistrict}});
       setDistrict(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);

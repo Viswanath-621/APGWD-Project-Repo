@@ -5,11 +5,13 @@ import './dd.css';
 const ApprovalList = (props) => {
   const [search, setSearch] = useState('');
   const [district, setDistrict] = useState([]);
+
+  const DD_APPROVE = import.meta.env.VITE_DD_APPROVE_ROUTE
   const userDistrict=props.data;
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://apgwd-backend-service.onrender.com/approvallist',{params:{userDistrict}});
+      const response = await axios.get(DD_APPROVE,{params:{userDistrict}});
       setDistrict(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);

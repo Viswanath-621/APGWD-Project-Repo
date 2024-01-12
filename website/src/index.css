@@ -1147,22 +1147,132 @@ blockquote:after {
 } 
 
 .Latt-da{
-  width: 100%;
-  height: 60%;
-  text-align: center;
-  align-items: center;
+  width: 95%;
+  /* height: 80vh;   */
+  margin: 10px;
+  border-radius: 10px;
   background-color: #019994;
   justify-content: center;
-  padding: 50px; 
+  align-items: center;
+  margin-left: 25px;
+  text-align: center;
+  padding: 20px; 
 }
 
+/* MapsForm.css */
+
+.Latt-da .place-name {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  width: auto;
+  font-size: 16px;
+}
+
+
+.Latt-da .mapsForm-container{
+  position: relative;
+  
+}
+/* Overall Layout */
+.Latt-da .mapsForm-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+}
+
+.Latt-da .form-container,
+.Latt-da .map-container {
+  flex: 1;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+}
+
+/* Form Styling */
+.Latt-da .form-container {
+  background: white;
+  padding: 20px;
+}
+
+.Latt-da .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Latt-da .form-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.Latt-da .form-container input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.Latt-da .button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.Latt-da .button:hover {
+  background-color: #0056b3;
+}
+
+/* Map Container */
+.Latt-da .map-container {
+  height: 400px; /* Adjust as needed */
+  margin: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mapsForm-container {
+    flex-direction: column;
+  }
+
+  .map-container {
+    height: 300px;
+  }
+}
+
+
 .Latt-da h1{
-  border-radius: 25px;
-  background-color: #7ab1aa;
-  max-width: 60%;
-  color: #062f5c;
-  margin-left: 250px;
+  /* font-size: 80px; */
+  font-weight: 500;
+  background: linear-gradient(175deg ,#be1515 35%,rgb(70, 14, 183));
+  background-size: 200% auto;
+  background-clip: text;
+
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient 1.5s linear infinite;
 } 
+
+@keyframes gradient{
+  0%{
+    background-position: 0% 75%;
+  }
+  50%{
+    background-position: 100% 30%;
+  }
+  100%{
+    background-position: 0% 70%;
+  }
+}
 
 
 .button-55{
@@ -1452,8 +1562,7 @@ blockquote:after {
   background-color: #f1f1f1; /* Light grey color for the sidebar */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   position: relative;
-  border-radius: 15px;
-
+  border-radius: 15px; 
 }
 
 .profile-form-container .profile-details {
@@ -1625,7 +1734,7 @@ blockquote:after {
   top: 60%;
   left: 55%;
   margin-top: -100px;
-  margin-left: 50px;
+  margin-left: 50px; 
   color: #ffffff;
   font-family: Roboto;
   font-weight: 300;

@@ -20,6 +20,9 @@ const FormDetails = (props) => {
     setimage(file);
   };
 
+  const DD_PHOTO=import.meta.env.VITE_DD_UPLOAD_PHOTO_ROUTE
+  const IMG_CLOUDINARY=import.meta.env.VITE_API_CLOUDINARY_IMAGE_LINK
+  const MP4_CLOUDINARY=import.meta.env.VITE_API_CLOUDINARY_VIDEO_LINK
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -31,8 +34,8 @@ const FormDetails = (props) => {
       formData.append("cloud_name", "dwttfsaxa")
 
       const apiURL = image.type.includes("image")
-      ? "https://api.cloudinary.com/v1_1/dwttfsaxa/image/upload"
-      : "https://api.cloudinary.com/v1_1/dwttfsaxa/video/upload";
+      ? IMG_CLOUDINARY
+      :  MP4_CLOUDINARY;
   
       // Send the image file to the server, include the username in the URL
       await fetch(apiURL, {
@@ -48,7 +51,8 @@ const FormDetails = (props) => {
         }).catch((err) => {
           console.log(err)
         })
-        const response = await axios.post('https://apgwd-backend-service.onrender.com/profileupload',{photo1,address,name,editname});
+
+        const response = await axios.post(DD_PHOTO,{photo1,address,name,editname});
 
   
       // Add logic to handle other form fields and submission (if needed)

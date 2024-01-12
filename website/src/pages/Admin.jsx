@@ -25,12 +25,19 @@ const Admin = () => {
   const location = useLocation();
   const userName = location.state.name;
   const userDistrict = location.state.district;
+
+  const ADMIN_UPDATE = import.meta.env.VITE_ADMIN_UPDATE_ROUTE;
+  const ADMIN_CANCEL = import.meta.env.VITE_ADMIN_CANCEL_ROUTE;
+  const ADMIN_RETRIEVE = import.meta.env.VITE_ADMIN_RETRIEVE_ROUTE;
+
+  const ADMIN_BASE_URL = import.meta.env.VITE_BASE_URL;
+
   // Define the fetchData function
   const fetchData = async () => {
     try {
       // const response = await axios.get("http://localhost:8000/adminretrieve", {
-      
-      const response = await axios.get("https://apgwd-backend-service.onrender.com/adminretrieve", {
+
+      const response = await axios.get(ADMIN_RETRIEVE, {
         params: { userDistrict },
       });
       setDistrict(response.data);
@@ -46,7 +53,7 @@ const Admin = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post("https://apgwd-backend-service.onrender.com/adminupdate", {
+      const response = await axios.post(ADMIN_UPDATE, {
         cityId: city._id,
         newValue: city.value, // Use the specific updateValue for the city
       });
@@ -64,7 +71,7 @@ const Admin = () => {
 
   const handleCancel = async (city) => {
     try {
-      const response = await axios.post("https://apgwd-backend-service.onrender.com/admincancel", {
+      const response = await axios.post(ADMIN_CANCEL, {
         cityId: city._id,
       });
 
@@ -115,18 +122,17 @@ const Admin = () => {
       (cityId) => checkedRecords[cityId]
     );
 
+    const ADMIN_ACTION_URL = `${ADMIN_BASE_URL}/admin${action}`;
+
     if (selectedCityIds.length === 0) {
       console.log("No records selected");
       return;
     }
 
     try {
-      const response = await axios.post(
-        `https://apgwd-backend-service.onrender.com/admin${action}`,
-        {
-          cityIds: selectedCityIds,
-        }
-      );
+      const response = await axios.post(ADMIN_ACTION_URL, {
+        cityIds: selectedCityIds,
+      });
 
       if (response.data.success) {
         fetchData();
@@ -164,7 +170,7 @@ const Admin = () => {
 
   const handleHomeClick = () => {
     // Navigate to the home page
-    navigate("/")
+    navigate("/");
   };
 
   const handleEmployeeButtonClick = () => {
@@ -237,14 +243,9 @@ const Admin = () => {
       <div className="links-da">
         <ul>
           <li>
-            <button
-              className="wierd"
-              role="button"
-              onClick={handleHomeClick}
-            >
+            <button className="wierd" role="button" onClick={handleHomeClick}>
               Home
             </button>
-
           </li>
           <li>
             <button
@@ -257,7 +258,7 @@ const Admin = () => {
           </li>
           <li>
             <button
-              className="wierd"          // onClick={handleExcelButtonClick}
+              className="wierd" // onClick={handleExcelButtonClick}
               role="button"
               onClick={handleTransferButtonClick}
             >
@@ -308,21 +309,18 @@ const Admin = () => {
         </h1>
 
         <button
-           className="wierd-ad"
-            onClick={handleAdminButtonClick}
-            role="button"
-          >
-            Click Here To Check Your Profile
-          </button>
+          className="wierd-ad"
+          onClick={handleAdminButtonClick}
+          role="button"
+        >
+          Click Here To Check Your Profile
+        </button>
       </div>
-
-
 
       {/* <div className="admin-land">
         <div className="weltext">
           
         </div> */}
-
 
       {/* <div className="buttons-da">
           <button
@@ -381,7 +379,6 @@ const Admin = () => {
             new station
           </button>
         </div> */}
-
 
       {/* </div> */}
       {/* <div className={`wrapper`}>
@@ -517,13 +514,10 @@ const Admin = () => {
                       </tr>
                     );
                   })}
-
-
               </tbody>
-
             </table>
           </div>
-          <div className='bulk-da'>
+          <div className="bulk-da">
             <button onClick={() => handleBulkAction("submitall")}>
               Submit Selected
             </button>
@@ -538,11 +532,9 @@ const Admin = () => {
       {showPendingBody ? <PendingList data={userDistrict} /> : null}
       {showNewEmpBody ? <ApprovalList data={userDistrict} /> : null}
       {showUploadBody ? <DDupdate data={{ userDistrict, userName }} /> : null}
-      
-      {showAdminProfile && (
-          <FormDetails/>
-        )}
-      
+
+      {showAdminProfile && <FormDetails />}
+
       <Foot />
     </div>
   );
