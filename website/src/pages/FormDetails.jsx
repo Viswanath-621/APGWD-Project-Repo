@@ -1,3 +1,4 @@
+
 // ProfileForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -10,7 +11,6 @@ const FormDetails = (props) => {
   const [image,setimage]=useState(null);
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
-  const [about, setAbout] = useState('');
   const [address, setAddress] = useState('');
   const [editMode, setEditMode] = useState(true);
   const [submittedData, setSubmittedData] = useState(null);
@@ -58,14 +58,10 @@ const FormDetails = (props) => {
   
       // Add logic to handle other form fields and submission (if needed)
   
-<<<<<<< HEAD
-      const submittedInfo = { photo, name, surname, address,about };
-=======
       const submittedInfo = { photo, name, surname, address };
       // Handle the response from the server
       const responseData = response.data;
       console.log('Server Response:', responseData);   
->>>>>>> origin
       console.log('Form submitted:', submittedInfo);
       setSubmittedData(submittedInfo);
       setEditMode(false); // Switch to view mode after submission
@@ -87,7 +83,7 @@ const FormDetails = (props) => {
         </div>
         <div className="links">
           <a href="/login">Logout</a>
-          <a href="/chPass">Change Password</a>
+          <a href="#">Change Password</a>
         </div>
       </div>
 
@@ -124,7 +120,7 @@ const FormDetails = (props) => {
             </label>
             <label>
             About: &nbsp;&nbsp;
-            <input placeholder="Describe yourself" value={about} onChange={(e) => setAbout(e.target.value)} style={{height: "70px"}} required/></label>
+            <input placeholder="Describe yourself" style={{height: "70px"}}/></label>
           </div>
           
           <div className="button-container">
@@ -147,11 +143,7 @@ const FormDetails = (props) => {
           <p>Name: &nbsp; {submittedData.name}</p>
           <p>Surname: &nbsp;{submittedData.surname}</p>
           <p>Address: &nbsp;{submittedData.address}</p>
-<<<<<<< HEAD
-          <p>About: &nbsp;{submittedData.about}</p>
-=======
           
->>>>>>> origin
           <div className="button-container">
             <button type="button" onClick={handleEdit}>
               Edit
