@@ -1,37 +1,71 @@
 // ProfileForm.js
 import React, { useState } from 'react';
+import axios from 'axios';
 
 
-const FormDetails = () => {
+const FormDetails = (props) => {
   const [photo, setPhoto] = useState(null);
+  const [photo1, setPhoto1] = useState('');
+
+  const [image,setimage]=useState(null);
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [about, setAbout] = useState('');
   const [address, setAddress] = useState('');
   const [editMode, setEditMode] = useState(true);
   const [submittedData, setSubmittedData] = useState(null);
-
+  const {editname}=props;
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     setPhoto(file);
+    setimage(file);
   };
 
+  const DD_PHOTO=import.meta.env.VITE_DD_UPLOAD_PHOTO_ROUTE
+  const IMG_CLOUDINARY=import.meta.env.VITE_API_CLOUDINARY_IMAGE_LINK
+  const MP4_CLOUDINARY=import.meta.env.VITE_API_CLOUDINARY_VIDEO_LINK
   const handleSubmit = async (e) => {
     e.preventDefault();
   
     try {
       const formData = new FormData();
-      formData.append('photo', photo);
+      formData.append("resource_type", image.type && image.type.includes("image") ? "image" : "video");
+      formData.append('file', image);
+      formData.append("upload_preset", "gallery")
+      formData.append("cloud_name", "dwttfsaxa")
+
+      const apiURL = image.type.includes("image")
+      ? IMG_CLOUDINARY
+      :  MP4_CLOUDINARY;
   
       // Send the image file to the server, include the username in the URL
-      await fetch(`http://localhost:8000/profileupload/${name}`, {
+      await fetch(apiURL, {
         method: 'POST',
         body: formData,
-      });
+      })
+      .then((res) => res.json())
+        .then((formData) => {
+          console.log(formData);
+          setPhoto1(formData.url.toString());
+          console.log(typeof formData.url);
+          console.log(photo1);
+        }).catch((err) => {
+          console.log(err)
+        })
+
+        const response = await axios.post(DD_PHOTO,{photo1,address,name,editname});
+
   
       // Add logic to handle other form fields and submission (if needed)
   
+<<<<<<< HEAD
       const submittedInfo = { photo, name, surname, address,about };
+=======
+      const submittedInfo = { photo, name, surname, address };
+      // Handle the response from the server
+      const responseData = response.data;
+      console.log('Server Response:', responseData);   
+>>>>>>> origin
       console.log('Form submitted:', submittedInfo);
       setSubmittedData(submittedInfo);
       setEditMode(false); // Switch to view mode after submission
@@ -71,7 +105,8 @@ const FormDetails = () => {
               Upload Photo:
               <input type="file" onChange={handlePhotoChange} accept="image/*" />
             </div>
-          </label>
+          </label> 
+          
           <div className="input-container">
             <label>
               Name: &nbsp;&nbsp;
@@ -112,7 +147,11 @@ const FormDetails = () => {
           <p>Name: &nbsp; {submittedData.name}</p>
           <p>Surname: &nbsp;{submittedData.surname}</p>
           <p>Address: &nbsp;{submittedData.address}</p>
+<<<<<<< HEAD
           <p>About: &nbsp;{submittedData.about}</p>
+=======
+          
+>>>>>>> origin
           <div className="button-container">
             <button type="button" onClick={handleEdit}>
               Edit

@@ -7,6 +7,7 @@ import AdminNavBar from "./AdminNavBar";
 import Foot from "../components/Foot";
 import { useNavigate } from "react-router-dom";
 import FormDetails from "./FormDetails";
+import MapsForm from "../components/MapsForm";
 
 
 const Welcome = () => {
@@ -17,11 +18,15 @@ const Welcome = () => {
   const location = useLocation();
   const userDistrict = location.state.district;
   const editname = location.state.name;
+
+  const EMP_GET_ROUTE=import.meta.env.VITE_EMPLOYEE_RETRIEVE_ROUTE
+  const EMP_SET_ROUTE=import.meta.env.VITE_EMPLOYEE_UPDATE_ROUTE
+
   // Define the fetchData function
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://apgwd-backend-server.onrender.com/employeeretrieve",
+        EMP_GET_ROUTE,
         { params: { userDistrict } }
       );
       setDistrict(response.data);
@@ -37,7 +42,7 @@ const Welcome = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post("https://apgwd-backend-server.onrender.com/update", {
+      const response = await axios.post(EMP_SET_ROUTE, {
         cityId: city._id,
         newValue: updateValues[city._id] || "", // Use the specific updateValue for the city
         editname,
@@ -75,6 +80,10 @@ const Welcome = () => {
   const [showForm, setShowForm] = useState(false);
   const [showUploadBody, setShowUploadBody] = useState(false);
   const [showLatLngBody, setShowLatLngBody] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState({
+    lat: 28.7041,
+    lng: 77.1025,
+  });
 
   const handleFormButtonClick = () => {
     // navigate("/filldetails");
@@ -312,13 +321,14 @@ const Welcome = () => {
       <div>
         {showLatLngBody && (
           <div className="Latt-da">
-            <h1>Need to use phone location</h1>
+            <h1>Click on Allow Access</h1>
+            <MapsForm selectedLocation={selectedLocation}/>
           </div>
         )}
       </div>
       <div>
       {showUserProfile && (
-          <FormDetails />
+          <FormDetails editname={editname}/>
         )}
       </div>
       <div className="welcfoot">

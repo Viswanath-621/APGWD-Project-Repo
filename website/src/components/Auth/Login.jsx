@@ -25,11 +25,17 @@ function Login() {
   const [userComponent, setUserComponent] = useState(null);
 
 
+  const LoginRoute = import.meta.env.VITE_LOGIN_ROUTE
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       // const response = await axios.post("https://apgwdback.onrender.com/login", { username, password });
-      const response = await axios.post("https://apgwd-backend-server.onrender.com/login", { username, password });
+      // const response = await axios.post('https://apgwd-backend-service.onrender.com/login', { username, password });
+      // const response = await axios.post('http://localhost:8000/login', { username, password });
+      const response = await axios.post(LoginRoute, { username, password });
+      console.log(LoginRoute);
       console.log("Response from server:", response);
       const { success, message, designation, district, username: responseUsername } = response.data;
 
@@ -68,8 +74,12 @@ function Login() {
     setUsername("");
   };
 
+  const divStyle = {
+    backgroundImage: 'url("signbg.png")'
+  };
+
   return (
-    <div>
+    <div> 
       {/* <Navibar isLoggedIn={isLoggedIn} username={username} /> */}
       {/* <Navibar isLoggedIn={isLoggedIn} username={us} handleLogout={handleLogout} /> */}
 
@@ -93,7 +103,7 @@ function Login() {
         designation === 'jd' && (<Navigate to="/jd" replace={true} />)
 
       }
-      <div className="login-container">
+      <div className="login-container" style={divStyle}>
         <div className="login-content">
           <h2>Login Now</h2> <br />
           <form onSubmit={handleSubmit}>

@@ -23,11 +23,12 @@ const Transfer = () => {
     // You can remove the axios code since you're directly using the data from Alldistricts.js
   }, []); // Empty dependency array ensures the effect runs only once
 
+  const DD_TRANSFER = import.meta.env.VITE_DD_TRANSFER_ROUTE
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://apgwd-backend-server.onrender.com/employeetransfer', {
+      const response = await axios.post(DD_TRANSFER, {
         username,
         transferto,
       });
