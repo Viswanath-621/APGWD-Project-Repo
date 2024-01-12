@@ -312,7 +312,8 @@ const Welcome = () => {
       <div>
         {showUploadBody && (
           <div className="Excel-da">
-            <h1>Need to create the button </h1>
+            {/* <h1>Need to create the button </h1> */}
+      <button class="favorite styled" type="button">Upload your Sheet</button>
           </div>
         )}
       </div>
