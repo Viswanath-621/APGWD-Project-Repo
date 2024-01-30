@@ -14,7 +14,7 @@ function Navibar({ isLoggedIn = false, username = "", handleLogout = () => {} })
         </div>
 
         <div className="page-title">
-          <p className="lead">Government of Andhra Pradesh</p>
+          <p className="lead">Government of Andhra Pradesh</p> 
           <h2>Ground Water & Water Audit Department</h2>
           <p className="lead">Water Resource Department</p>
         </div>

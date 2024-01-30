@@ -11,6 +11,12 @@ import MapsForm from "../components/MapsForm";
 
 
 const Welcome = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const [search, setSearch] = useState("");
   const [district, setDistrict] = useState([]);
   const [updateValues, setUpdateValues] = useState({}); // Use an object to store update values for each city
@@ -126,14 +132,19 @@ const Welcome = () => {
       {/* <Navibar /> */}
       <AdminNavBar username={editname} />
 
-      <div className="links-da">
-        <ul>
+      <div className="burger" onClick={toggleMenu}>
+        <span>☰</span>
+      </div>
+
+      <div className={`links-da ${isMenuOpen ? 'show' : ''}`}>
+      <ul>
+          
           <li>
           <button
               className="wierd"
               role="button"
               onClick={handleHomeClick}
-            >
+            > 
               Home
             </button>
           </li>
@@ -179,12 +190,13 @@ const Welcome = () => {
         </ul>
       </div>
 
+      
+      <br/>
       <div className="Admin-title">
         <h1>
           Welcome, {userDistrict} Employee {editname} 
         </h1>
         </div>
-
 
 
       {/* <div className="admin-land">
@@ -261,7 +273,6 @@ const Welcome = () => {
                               style={{
                                 maxWidth: "100%",
                                 maxHeight: "60px",
-                                
                               }}
                             />
                           )}

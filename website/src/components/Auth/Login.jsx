@@ -6,7 +6,7 @@ import Navibar from "../Navibar";
 
 import Admin from "../../pages/Admin";
 import Welcome from "../../pages/Welcome";
-import AdminNavBar from "../../pages/AdminNavBar";
+import Footer from "../Footer";
 
 
 
@@ -78,6 +78,10 @@ function Login() {
     backgroundImage: 'url("signbg.png")'
   };
 
+  const divlStyle = {
+    backgroundImage: "url('/login-bg.png')"
+  };
+
   return (
     <div> 
       {/* <Navibar isLoggedIn={isLoggedIn} username={username} /> */}
@@ -104,7 +108,7 @@ function Login() {
 
       }
       <div className="login-container" style={divStyle}>
-        <div className="login-content">
+        <div className="login-content" style={divlStyle}>
           <h2>Login Now</h2> <br />
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -138,9 +142,9 @@ function Login() {
               />
             </div>
 
-            <button type="submit" className="btn btn-success w-100 rounded-0">
+            <button type="submit" >
               Login
-            </button>
+            </button><br/><br />
           </form>
           <div className="signup-btn">
             <p>
@@ -150,8 +154,7 @@ function Login() {
           </div>
         </div>
       </div>
-
-      {userComponent}
+      <Footer/>
     </div>
   );
 }
@@ -168,68 +171,3 @@ const UserComponent = () => {
 
 
 export default Login;
-
-// import React from "react";
-// import { useState } from "react";
-
-// function Loginda({ onLogin }) {
-//   const [username, setUsername] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     onLogin({ username, password });
-
-//   };
-
-//   return (
-//     <div>
-//       <h2>Login Now</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div className="container">
-//           <label>
-//             <b>Username</b>
-//           </label>
-//           <input
-//             type="text"
-//             placeholder="Enter Username"
-//             value={username}
-//             onChange={(e) => setUsername(e.target.value)}
-//             required
-//           />
-
-//           <label>
-//             <b>Password</b>
-//           </label>
-
-//           <input
-//             type="password"
-//             placeholder="Enter Password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             required
-//           />
-
-//           <button type="submit" value="Submit" className="Login-b">
-//             Login
-//           </button>
-
-// <label>
-//   <input type="checkbox" name="remember" /> Remember me
-// </label>
-
-// <div className="container-f">
-//   <button type="button" className="cancelbtn">
-//     Cancel
-//   </button>
-//   <span className="psw">
-//     Forgot <a href="#">password?</a>
-//   </span>
-// </div>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default Loginda;

@@ -6,9 +6,10 @@ import Navbar from '../components/Navibar'
 import Foot from '../components/Foot'
 
 const JD_GET_PENDING = import.meta.env.VITE_DD_PENDING_ROUTE
+
 const fetchallwell = async (userDistrict) => {
   try {
-    const response = await axios.get('JD_GET_PENDING', {
+    const response = await axios.get(JD_GET_PENDING, {
       params: { userDistrict },
     });
     console.log(response.data);
