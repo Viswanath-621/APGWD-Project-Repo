@@ -150,10 +150,7 @@ li a:hover {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  * {
-    /* overflow-x: hidden; */
-    
-  }
+ 
 
 
   .page-title {
