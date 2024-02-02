@@ -138,7 +138,6 @@ const Welcome = () => {
 
       <div className={`links-da ${isMenuOpen ? 'show' : ''}`}>
       <ul>
-          
           <li>
           <button
               className="wierd"

@@ -79,12 +79,12 @@ li a:hover {
   font-size: 1em;
   /* Responsive font size */
 }
-
+/*Responsive code*/
+/* General styles for .logind */
 .logind {
   background-color: #008778;
   border-radius: 25px;
   padding: 10px;
-  /* margin-top: 25px; */
   text-align: center; /* Center text */
 }
 
@@ -108,11 +108,54 @@ li a:hover {
   transform: scale(1.2);
 }
 
+/* Media query for smaller screens */
+@media screen and (max-width: 767px) {
+  .logind {
+    padding: 5px; /* Adjust padding for smaller screens */
+  }
+
+  .logind a,
+  .logind button {
+    font-size: smaller; /* Adjust font size for smaller screens */
+  }
+}
+
+/* .logind {
+  background-color: #008778;
+  border-radius: 25px;
+  padding: 10px; */
+  /* margin-top: 25px; */
+  /* text-align: center; Center text */
+/* } */
+
+/* .logind a,
+.logind button {
+  color: aliceblue;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: small;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  border: none; Remove border from buttons
+  background: none; Remove background from buttons
+  padding: 5px 10px; Padding for buttons */
+/* } */
+
+/* .logind a:hover,
+.logind button:hover {
+  transform: scale(1.2);
+} */
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   * {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    
   }
+
+
   .page-title {
     padding-left: 0; /* Remove padding at smaller screens */
     font-size: 0.8em; /* Smaller font size */
@@ -151,14 +194,14 @@ li a:hover {
     text-align: center; /* Center title text */
     font-size:0.7em; 
   }
-
+/* 
   .logind {
-    width: auto; /* Auto width */
+    width: auto; Auto width */
     /* margin-top: 9px; */
-    height: 20px;
+    /* height: 20px;
     font-size: 2px;
     text-align:center ;
-  }
+  } */
 }
 
 .links-da {
@@ -235,7 +278,7 @@ li a:hover {
       #6d6d6d -78.47%,
       #11101d -278.56%
     );
-    display: flex;
+    
     padding-left: 32px;
   }
 
@@ -949,14 +992,43 @@ span.psw {
   font-size: 23px;
 }
 
-.wierd {
-  border-radius: 10px;
+/* .wierd {
+  border-radius: 10px; */
   /* width: auto; */
-  padding: 10px 11px;
+  /* padding: 10px 11px;
   background-color: transparent;
   font-size: 14px;
   color:#fff;
+} */
+
+/*Responsive code*/
+/* Default styles for buttons */
+.wierd {
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color: #003480;
+  font-size: 16px;
+  color: #fff;
+  margin: 5px; /* Add margin for spacing between buttons */
+ 
 }
+
+
+/* Media query for smaller screens */
+@media screen and (max-width: 767px) {
+  .wierd {
+    width: 100%; /* Make the buttons take up the full width on smaller screens */
+    margin: 5px 0; /* Adjust margin for better spacing on smaller screens */
+  }
+}
+
+/* Hover effect for better visibility */
+/* .wierd:hover {
+  background-color: #fff;
+  color: #000;
+} */
+
+
 .weltext p {
   font-size: 35px;
   font-weight: 900;
@@ -1130,7 +1202,7 @@ blockquote:after {
 }
 
 .admina input {
-  width: 50%;
+  width: 100%;
   padding: 10px;
   /* margin: 10px; */
   margin-left: 6%;
@@ -1139,13 +1211,14 @@ blockquote:after {
 }
 
 .admina button {
-  /* width: 100%; */
-  width: 15%;
+  width: 100%;
+  /* width: 15%; */
   padding: 10px;
   margin: 10px;
   background-color: #003480;
   border-radius: 10px;
-  font-size: large;
+  /* font-size: large; */
+  color:white
 }
 
 .admina {
@@ -1186,8 +1259,9 @@ blockquote:after {
   height: 100%;
   transition: all 0.6s ease-in-out;
   width: 50%;
-  padding: 50px;
+  padding: 10px;
   overflow-y: scroll;
+  flex: 2;
 }
 
 .form-container button {
@@ -1678,6 +1752,16 @@ blockquote:after {
   text-transform: capitalize;
   padding-top: 18px;
 }
+/* .profile-form-container {
+  display: flex;
+  background-color: yellow;
+  max-width: 800px;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 15px;
+  flex-wrap: wrap;
+} */
+
 .profile-form-container {
   display: flex;
   background-color: yellow;
@@ -1685,6 +1769,7 @@ blockquote:after {
   margin: 20px auto;
   position: relative;
   border-radius: 15px;
+  flex-wrap: wrap;
 }
 
 .profile-form-container .sidebar {
@@ -1694,6 +1779,8 @@ blockquote:after {
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 15px;
+  flex: 1;
+  min-width: 200px;
 }
 
 .profile-form-container .profile-details {
@@ -1732,6 +1819,7 @@ blockquote:after {
 .profile-form-container .upload-container {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 10px;
   position: relative;
 }
@@ -1741,11 +1829,18 @@ blockquote:after {
   position: relative;
 }
 
+.example-image-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
 .profile-form-container .example-image-container {
   display: flex;
   align-items: center;
   gap: 10px;
   position: relative;
+
 }
 
 .profile-form-container .example-image-container span {
@@ -1756,7 +1851,8 @@ blockquote:after {
 .profile-form-container .input-container {
   display: flex;
   justify-content: space-between;
-  gap: 5px;
+  gap: 10px;
+  flex-direction: column;
   margin-bottom: 10px; /* Add margin between input containers */
   position: relative;
   margin-top: 10px; /* Add margin between input containers */
@@ -1769,14 +1865,15 @@ blockquote:after {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  width: 90%;
 }
 
 .profile-form-container .button-container {
   display: flex;
   justify-content: center;
   position: relative;
-
-  margin-top: 15px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .profile-form-container button {
@@ -1816,10 +1913,44 @@ blockquote:after {
   text-align: center;
   position: relative;
 }
+/* Add a media query for smaller screens */
+@media screen and (max-width: 767px) {
+  .profile-form-container {
+    flex-direction: column;
+    justify-content: center;
+  }
 
+  .profile-form-container > * {
+    margin: auto;
+  }
+  .form-container {
+    order: -1; /* Move the form container above the sidebar on smaller screens */
+  }
+
+  .sidebar,
+  .form-container {
+    width: 100%;
+  }
+}
+/* .wierd-ad {
+  max-width: 12%;
+  display: flex; Add this line */
+  /* justify-content: center;
+  margin: 1px auto;
+  padding: 8px;
+  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 15px;
+  font-family: Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+} */
+
+/*responsive code*/
 .wierd-ad {
   max-width: 12%;
-  display: flex; /* Add this line */
+  display: flex;
   justify-content: center;
   margin: 1px auto;
   padding: 8px;
@@ -1831,6 +1962,14 @@ blockquote:after {
   font-family: Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
 }
+
+/* Add a media query for smaller screens */
+@media screen and (max-width: 767px) {
+  .wierd-ad {
+    max-width: 100%; /* Adjust max-width for smaller screens */
+  }
+}
+
 
 .body1 {
   background: linear-gradient(to right, #0e427d, #5bc8bd) !important;
@@ -1954,3 +2093,4 @@ blockquote:after {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
+
