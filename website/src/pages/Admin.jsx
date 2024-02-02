@@ -318,8 +318,7 @@ const Admin = () => {
       </div>
 
       {/* <div className="admin-land">
-        <div className="weltext">
-          
+        <div className="weltext">         
         </div> */}
 
       {/* <div className="buttons-da">

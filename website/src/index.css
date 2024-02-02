@@ -84,8 +84,7 @@ li a:hover {
   background-color: #008778;
   border-radius: 25px;
   padding: 10px;
-  /* margin-top: 25px; */
-  text-align: center; /* Center text */
+  text-align: center; 
 }
 
 .logind a,
@@ -98,9 +97,9 @@ li a:hover {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  border: none; /* Remove border from buttons */
-  background: none; /* Remove background from buttons */
-  padding: 5px 10px; /* Padding for buttons */
+  border: none; 
+  background: none; 
+  padding: 5px 10px; 
 }
 
 .logind a:hover,
@@ -142,19 +141,18 @@ li a:hover {
   }
   
   .Logos {
-    display: none; /* Hide logos */
+    display: none; 
   }
 
 
   .page-title {
-    padding: 0; /* Remove padding */
-    text-align: center; /* Center title text */
+    padding: 0; 
+    text-align: center; 
     font-size:0.7em; 
   }
 
   .logind {
-    width: auto; /* Auto width */
-    /* margin-top: 9px; */
+    width: auto; 
     height: 20px;
     font-size: 2px;
     text-align:center ;
@@ -278,7 +276,7 @@ li a:hover {
   margin-top: 5%;
   margin-left: 9%;
   justify-content: center;
-  /* min-height: 100vh; */
+  min-height: 65vh;
   margin-bottom: 30px;
   position: relative;
   display: grid;
@@ -288,7 +286,6 @@ li a:hover {
 .hero-text{
   overflow: hidden;
   padding: 9px;
-  ;
 
 }
 .hero-text h5 {
@@ -1654,6 +1651,7 @@ blockquote:after {
   margin-right: 6px;
   font: 12px sans-serif;
   padding: 10px;
+  margin: 10px;
 }
 
 .jd-mail ul {
@@ -1661,20 +1659,19 @@ blockquote:after {
   border-radius: 10px;
   padding: 5px;
 }
+
 .jd-mail li {
   margin: 10px;
   padding: 3px;
-  /* border-right: 1px solid #000; */
 }
 
 .Admin-title {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
 
 .Admin-title h1 {
-  text-align: center; /* Optional: Center the text within the h1 element */
+  text-align: center; 
   text-transform: capitalize;
   padding-top: 18px;
 }
@@ -1690,7 +1687,7 @@ blockquote:after {
 .profile-form-container .sidebar {
   width: 30%;
   padding: 20px;
-  background-color: #f1f1f1; /* Light grey color for the sidebar */
+  background-color: #f1f1f1; 
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 15px;
@@ -1714,7 +1711,6 @@ blockquote:after {
   text-decoration: none;
   color: #333;
   position: relative;
-
   transition: background-color 0.3s;
 }
 
@@ -1757,9 +1753,9 @@ blockquote:after {
   display: flex;
   justify-content: space-between;
   gap: 5px;
-  margin-bottom: 10px; /* Add margin between input containers */
+  margin-bottom: 10px; 
   position: relative;
-  margin-top: 10px; /* Add margin between input containers */
+  margin-top: 10px; 
 }
 
 .profile-form-container .input-container input {
@@ -1819,7 +1815,7 @@ blockquote:after {
 
 .wierd-ad {
   max-width: 12%;
-  display: flex; /* Add this line */
+  display: flex; 
   justify-content: center;
   margin: 1px auto;
   padding: 8px;
@@ -1862,7 +1858,6 @@ blockquote:after {
 }
 .body1 .buttons-con .action-link-wrap {
   margin-top: 40px;
-  /* display: flex; */
 }
 .body1 .buttons-con .action-link-wrap a {
   background: #68c950;
@@ -1954,3 +1949,4 @@ blockquote:after {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
+
