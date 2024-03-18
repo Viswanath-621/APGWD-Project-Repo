@@ -25,7 +25,6 @@ const Admin = () => {
   const location = useLocation();
   const userName = location.state.name;
   const userDistrict = location.state.district;
-
   const ADMIN_UPDATE = import.meta.env.VITE_ADMIN_UPDATE_ROUTE;
   const ADMIN_CANCEL = import.meta.env.VITE_ADMIN_CANCEL_ROUTE;
   const ADMIN_RETRIEVE = import.meta.env.VITE_ADMIN_RETRIEVE_ROUTE;
@@ -201,7 +200,7 @@ const Admin = () => {
     setshowNewStatBody(false);
   };
 
-  const handleUploadButtonClick = () => {
+  const handleUploadButtonClick = () => {+
     setshowEmployeeForm(false);
     setshowTransferBody(false);
     setshowPendingBody(false);
@@ -317,10 +316,11 @@ const Admin = () => {
         </button>
       </div>
 
+      
       {/* <div className="admin-land">
         <div className="weltext">         
         </div> */}
-
+        
       {/* <div className="buttons-da">
           <button
             className="button-56"

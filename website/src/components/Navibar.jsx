@@ -8,9 +8,9 @@ function Navibar({ isLoggedIn = false, username = "", handleLogout = () => {} })
     <div className="navi">
       <div className="container-fluid">
         <div className="Logos">
-          <img src="1-logo.png" alt="" />
-          <img src="2-logo.png" alt="" />
-          <img src="3-logo.png" alt="" />
+          <img src="1-logo.png" alt="img-1" />
+          <img src="2-logo.png" alt="img-2" />
+          <img src="3-logo.png" alt="img-3" />
         </div>
 
         <div className="page-title">
@@ -19,6 +19,7 @@ function Navibar({ isLoggedIn = false, username = "", handleLogout = () => {} })
           <p className="lead">Water Resource Department</p>
         </div>
 
+        
         <div className="Logos-f">
           <img src="4-logo.png" alt="" />
         </div>
@@ -36,7 +37,6 @@ function Navibar({ isLoggedIn = false, username = "", handleLogout = () => {} })
           </div>
         </div>
       </div>
-
     </div>
   );
 }

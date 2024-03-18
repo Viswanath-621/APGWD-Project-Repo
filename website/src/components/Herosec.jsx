@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import AlertLineIcon from "remixicon-react/AlertLineIcon";
 import AlertFillIcon from "remixicon-react/AlertFillIcon";
+import NetworkMap from "./NetworkMap";
 
 function Herosec() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +27,8 @@ function Herosec() {
           </li>
           <li>
             <a href="https://apsgwd.ap.gov.in/home?id=award">AWARDS</a>
-          </li></div>
+          </li>
+          </div>
           <div className="nav-col2">
           <li>
             <a href="https://apwrims.ap.gov.in/">APWRIMS</a>
@@ -44,15 +46,13 @@ function Herosec() {
         <div className="hero-text">
           <h5>#1 Project</h5>
           <h4>VRSEC</h4>
-          <h1>Water Audit Department</h1>
+          <h1>Ground Water Level Monitoring System</h1>
           <p>
-            Make advance tracking a breeze with our easy-to-use Tracking app.
-            JOIN Millions of users worldwide and streamline in monitoring your
-            projects with our user- <br/>friendly tracking application - the perfect
-            tool for <br/>simplifying everyday analysis!
+          Andhra Pradesh government's groundwater level monitoring system: 
+          a thorough system for tracking and controlling groundwater levels 
+          in the area, guaranteeing sustainable management of water resources
+           and well-informed choices.
           </p>
-          
-          <para></para>
           
           <a href="#main-da" className="ctaa">
             Explore Now
@@ -61,12 +61,12 @@ function Herosec() {
           
           <a href="#" className="ctaa">
             <i className="ri-play-fill"></i> Watch Premiere
-          </a>
-          
+          </a>  
         </div>
-
+        
         <div className="hero-landing-img">
-          <img src="hero-sec-img.png" alt="viswa-landing-photo" />
+        <img src="apdistmap.jpg" height="600px" alt="viswa-landing-photo" />
+        
         </div>
       </section>
     </div>

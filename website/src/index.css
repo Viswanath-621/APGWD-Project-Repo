@@ -44,7 +44,6 @@ li a:hover {
   background-color: #111;
 }
 
-
 .container-fluid {
   padding: 15px;
   text-align: center;
@@ -52,7 +51,7 @@ li a:hover {
   color: #ffffff;
   background-color: #042c71;
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-between; /* Space out flex items */
   align-items: center; /* Vertically align items */
 }
@@ -124,8 +123,8 @@ li a:hover {
   background-color: #008778;
   border-radius: 25px;
   padding: 10px; */
-  /* margin-top: 25px; */
-  /* text-align: center; Center text */
+/* margin-top: 25px; */
+/* text-align: center; Center text */
 /* } */
 
 /* .logind a,
@@ -150,9 +149,6 @@ li a:hover {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
- 
-
-
   .page-title {
     padding-left: 0; /* Remove padding at smaller screens */
     font-size: 0.8em; /* Smaller font size */
@@ -167,7 +163,6 @@ li a:hover {
   .Logos-f img {
     padding-left: 0; /* Remove padding */
   }
-
 }
 
 @media (max-width: 480px) {
@@ -178,24 +173,22 @@ li a:hover {
     border-top-right-radius: 25px;
     padding-top: 20px;
     overflow: hidden;
-    
   }
-  
+
   .Logos {
     display: none; /* Hide logos */
   }
 
-
   .page-title {
     padding: 0; /* Remove padding */
     text-align: center; /* Center title text */
-    font-size:0.7em; 
+    font-size: 0.7em;
   }
-/* 
+  /* 
   .logind {
     width: auto; Auto width */
-    /* margin-top: 9px; */
-    /* height: 20px;
+  /* margin-top: 9px; */
+  /* height: 20px;
     font-size: 2px;
     text-align:center ;
   } */
@@ -222,7 +215,7 @@ li a:hover {
 
 .links-da a {
   text-decoration: none;
-  padding: 9px 10px; 
+  padding: 9px 10px;
   opacity: 0.75% #ff0878;
   font-size: 14px;
 }
@@ -265,36 +258,36 @@ li a:hover {
     width: auto;
     display: flex;
     border-radius: 10px;
-    
   }
 
-  .links-da.show ul{
+  .links-da.show ul {
     background: linear-gradient(
       144.39deg,
       #ffffff 91%,
       #6d6d6d -78.47%,
       #11101d -278.56%
     );
-    
+
     padding-left: 32px;
   }
 
-  .links-da.show ul .nav-col1 li a, .links-da.show ul  .nav-col2 li a{
+  .links-da.show ul .nav-col1 li a,
+  .links-da.show ul .nav-col2 li a {
     color: #000;
   }
 
-  .links-da.show ul .nav-col1 li a:hover, .links-da.show ul .nav-col2 li a:hover{
+  .links-da.show ul .nav-col1 li a:hover,
+  .links-da.show ul .nav-col2 li a:hover {
     color: #ffffff;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
 
-  .links-da.show ul .nav-col1{
+  .links-da.show ul .nav-col1 {
     padding: 0;
     position: relative;
     margin: 0;
   }
-
 }
 
 /* Styles for larger screens */
@@ -318,32 +311,29 @@ li a:hover {
   margin-top: 5%;
   margin-left: 9%;
   justify-content: center;
-  /* min-height: 100vh; */
+  min-height: 65vh;
   margin-bottom: 30px;
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 9rem;
 }
-.hero-text{
+.hero-text {
   overflow: hidden;
   padding: 9px;
-  ;
-
 }
 .hero-text h5 {
   font-size: 14px;
   font-weight: 400;
   color: #140e0e;
   margin-bottom: 20px;
-  
 }
 
 .hero-text h1 {
   font-family: "Permanent Marker", cursive;
 
-  font-size: 90px;
-  line-height: 1;
+  font-size: 59px;
+  line-height: 1.4;
   color: #042c71;
   /* color: #008778; */
   margin: 0 0 45px;
@@ -387,10 +377,10 @@ li a:hover {
 
 .hero-landing-img img {
   width: 95%;
-  height: auto;
-  padding: 10px;
+  height: 95%;
   z-index: 1000001;
   border-radius: 90px;
+  padding: 40px;
 }
 
 .hero-landing-img {
@@ -441,17 +431,18 @@ li a:hover {
 
   .hero-landing-img img {
     width: 95%;
-    height: auto;
+    height: 95%;
+    padding: 50px;
   }
 
   .hero-landing-img {
-    width: 99%;
+    width: 95%;
     height: auto;
     padding: 0px;
   }
 
   .hero-text h1 {
-    font-size: 50px; /* Adjust as needed */
+    font-size: 30px; /* Adjust as needed */
   }
 
   .hero-text p {
@@ -464,9 +455,12 @@ li a:hover {
   }
 }
 
-
 .hero-location {
-  background-image: linear-gradient(to bottom right, rgba(25, 84, 123, 1), rgb(0, 135, 120, 1));
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(25, 84, 123, 1),
+    rgb(0, 135, 120, 1)
+  );
   color: white;
   padding: 5% 0% 0% 0%;
   height: 47vh;
@@ -476,7 +470,6 @@ legend {
   font-size: calc(1.5em + 1vw);
   text-align: center;
 }
-
 
 fieldset {
   width: 80%;
@@ -574,13 +567,11 @@ fieldset {
   }
 }
 
-
 /* Mobile-specific adjustments */
 @media only screen and (max-width: 768px) {
   fieldset {
     width: 95%;
   }
-
 
   .s006 form .inner-form .input-field .btn-search {
     width: 15%;
@@ -594,14 +585,13 @@ fieldset {
     margin: 8px 0px 10px 35px;
   }
 
-
   .s006 form .suggestion-wrap {
     padding: 0 1%;
   }
 
-  .hero-location{
+  .hero-location {
     height: 43vh;
-    
+
     overflow-y: hidden;
   }
 }
@@ -615,8 +605,6 @@ fieldset {
   box-sizing: border-box;
   border-radius: 20px;
 }
-
-
 
 .bulk-da button {
   background-color: #04aa6d;
@@ -649,7 +637,7 @@ img.avatar {
 }
 
 .container {
-  margin: 100px;
+  margin: 90px;
 }
 
 span.psw {
@@ -671,7 +659,6 @@ span.psw {
   text-align: center;
   color: #6c757d;
 }
-
 
 .social-section {
   display: flex;
@@ -697,31 +684,28 @@ span.psw {
   color: #000;
 }
 
-
 @media only screen and (max-width: 768px) {
-  .social-section{
+  .social-section {
     padding: 2px;
     font-size: 15px;
     display: block;
   }
 
-  .social-links{
+  .social-links {
     margin: 20px;
   }
 
-  
   .social-links a {
     /* margin-right: 1rem; */
     color: #6c757d;
     text-decoration: none;
-    padding: 0;   
-    margin-right: 40px; 
+    padding: 0;
+    margin-right: 40px;
   }
-  
+
   .social-links a:hover {
     color: #000;
   }
-  
 }
 
 .footer-content {
@@ -759,7 +743,6 @@ span.psw {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-
 @media screen and (max-width: 768px) {
   .footer-content .column:nth-child(2),
   .footer-content .column:nth-child(3) {
@@ -768,7 +751,6 @@ span.psw {
   .footer-content {
     flex-direction: column;
   }
-  
 }
 
 /* Login.css */
@@ -790,15 +772,13 @@ span.psw {
   border-radius: 25px;
   width: 100%; /* Full width on smaller screens */
   max-width: 650px; /* Max width on larger screens */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better visibility */
   text-align: center;
-  background-size: cover; 
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; 
-  color:#042c71;
+  background-position: center;
+  color: #042c71;
 }
-
-
 
 .login-content label {
   font-weight: bold;
@@ -844,14 +824,13 @@ span.psw {
 @media (max-width: 768px) {
   .login-content {
     width: 90%; /* More width on smaller screens */
-    border-radius: 25px
+    border-radius: 25px;
   }
 
   .login-container {
-    padding: 25px;;
+    padding: 25px;
   }
 }
-
 
 .wrapper {
   width: 800px;
@@ -958,7 +937,7 @@ span.psw {
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: 83%;
+  margin-left: 87%;
   margin-top: 10px;
   position: absolute;
   color: #003480 !important;
@@ -968,11 +947,10 @@ span.psw {
   /* padding: 0% 0% 4% 0%; */
   cursor: pointer;
   background: transparent;
- 
 }
 
 .emplo-city .btn-search svg {
- background: 0 0;
+  background: 0 0;
   width: 30px;
   height: 30px;
   transition: all 0.2s ease-out, color 0.2s ease-out;
@@ -991,8 +969,8 @@ span.psw {
 
 /* .wierd {
   border-radius: 10px; */
-  /* width: auto; */
-  /* padding: 10px 11px;
+/* width: auto; */
+/* padding: 10px 11px;
   background-color: transparent;
   font-size: 14px;
   color:#fff;
@@ -1007,9 +985,7 @@ span.psw {
   font-size: 16px;
   color: #fff;
   margin: 5px; /* Add margin for spacing between buttons */
- 
 }
-
 
 /* Media query for smaller screens */
 @media screen and (max-width: 767px) {
@@ -1024,7 +1000,6 @@ span.psw {
   background-color: #fff;
   color: #000;
 } */
-
 
 .weltext p {
   font-size: 35px;
@@ -1173,7 +1148,7 @@ blockquote:after {
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
   width: 1215px;
   max-width: 100%;
   min-height: 680px;
@@ -1208,14 +1183,19 @@ blockquote:after {
 }
 
 .admina button {
-  width: 100%;
+  width: 50%;
   /* width: 15%; */
   padding: 10px;
   margin: 10px;
   background-color: #003480;
   border-radius: 10px;
   /* font-size: large; */
-  color:white
+  color: white;
+}
+
+.admina img {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .admina {
@@ -1230,7 +1210,6 @@ blockquote:after {
   justify-content: space-around;
 }
 
-/* custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -1594,7 +1573,7 @@ blockquote:after {
 }
 
 .container h1 {
-  padding-left: 42%;
+  padding-left: 37%;
   font-family: "Hedvig Letters Serif", serif;
   font-size: 27px;
   opacity: 0.8;
@@ -1725,6 +1704,7 @@ blockquote:after {
   margin-right: 6px;
   font: 12px sans-serif;
   padding: 10px;
+  margin: 10px;
 }
 
 .jd-mail ul {
@@ -1837,7 +1817,6 @@ blockquote:after {
   align-items: center;
   gap: 10px;
   position: relative;
-
 }
 
 .profile-form-container .example-image-container span {
@@ -1932,7 +1911,7 @@ blockquote:after {
 /* .wierd-ad {
   max-width: 12%;
   display: flex; Add this line */
-  /* justify-content: center;
+/* justify-content: center;
   margin: 1px auto;
   padding: 8px;
   margin-top: 20px;
@@ -1966,7 +1945,6 @@ blockquote:after {
     max-width: 100%; /* Adjust max-width for smaller screens */
   }
 }
-
 
 .body1 {
   background: linear-gradient(to right, #0e427d, #5bc8bd) !important;
@@ -2091,3 +2069,29 @@ blockquote:after {
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
+/* styles.css */
+
+.man-button-container {
+  margin: 25px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 15px; /* Adjust the gap between buttons */
+}
+
+.man-button-container button {
+  padding: 6px 4px; 
+  font-size: 16px; /* Adjust font size as needed */
+  background-color: #ffffff; /* Adjust button background color */
+  color: #1956b1; /* Adjust button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-basis: calc(33.33% - 10px); /* Divide into three columns */
+}
+
+.man-button-container button:hover {
+  background-color: #dce0a0; /* Adjust button hover background color */
+}

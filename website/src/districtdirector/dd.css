@@ -47,9 +47,9 @@
   }
   
   .approve-li div.green {
-    color: rgb(212, 221, 212); /* Color for cities with a non-null value */
+    color: rgb(212, 221, 212); /* Color for cities with a non-null value
   }
-  
+
 
 .admin-app-ta{
     margin: 40px;
@@ -67,7 +67,7 @@
     border: 1px solid black;
     padding: 8px;
     text-align: center;
-    /* font-size: 20px; */
+    /* font-size: 20px; *
     font-weight: bold;
     color: #f2f2f2;
   }

@@ -8,7 +8,42 @@ import Foot from "../components/Foot";
 import { useNavigate } from "react-router-dom";
 import FormDetails from "./FormDetails";
 import MapsForm from "../components/MapsForm";
+import NetworkMap from "../components/NetworkMap";
 
+//import NTR from "../data/NTR.json";
+//import Guntur from "../data/Guntur.json";
+//import Alluri from "../data/AlluriSitharamaRaju.json";
+
+import Alluri from "../data/AlluriSitharamaRaju.json";
+import Anakapalli from "../data/Anakapalli.json";
+import Anantha from "../data/Ananthapuramu.json";
+import Annamayya from "../data/Annamayya.json";
+import Bapatla from "../data/Bapatla.json";
+import Chittoor from "../data/Chittoor.json";
+import Ambedkar from "../data/DrBRAmbedkarKonaseema.json";
+import East from "../data/EastGodavari.json";
+import Eluru from "../data/Eluru.json";
+import Guntur from "../data/Guntur.json";
+import Kakinada from "../data/Kakinada.json";
+import Krishna from "../data/Krishna.json";
+import Kurnool from "../data/Kurnool.json";
+import Nandyala from "../data/Nandyala.json";
+import NTR from "../data/NTR.json";
+import Palnadu from "../data/Palnadu.json";
+import Parvathi from "../data/ParvathipuramManyam.json";
+import Prakasam from "../data/Prakasam.json";
+import SPSR from "../data/SPSRNellore.json";
+import Srikakulam from "../data/Srikakulam.json";
+import SriSathyaSai from "../data/SriSathyaSai.json";
+import Tirupati from "../data/Tirupati.json";
+import Visakha from "../data/Visakhapatnam.json";
+import Vizianagaram from "../data/Vizianagaram.json";
+import West from "../data/WestGodavari.json";
+import YSR from "../data/YSRKadapa.json";
+
+//john@2022 - GWADPESHI
+//pgnw7530 - HSECTION
+//Apsgwd123 - APWARIMS
 
 const Welcome = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,21 +60,35 @@ const Welcome = () => {
   const userDistrict = location.state.district;
   const editname = location.state.name;
 
-  const EMP_GET_ROUTE=import.meta.env.VITE_EMPLOYEE_RETRIEVE_ROUTE
-  const EMP_SET_ROUTE=import.meta.env.VITE_EMPLOYEE_UPDATE_ROUTE
+  const EMP_GET_ROUTE = import.meta.env.VITE_EMPLOYEE_RETRIEVE_ROUTE;
+  const EMP_SET_ROUTE = import.meta.env.VITE_EMPLOYEE_UPDATE_ROUTE;
 
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        EMP_GET_ROUTE,
-        { params: { userDistrict } }
-      );
+      const response = await axios.get(EMP_GET_ROUTE, {
+        params: { userDistrict },
+      });
       setDistrict(response.data);
+      
+    handleData(userDistrict);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
+
+  const [selectedData, setSelectedData] = useState(null);
+
+  const handleData = (disdata) => {
+    setSelectedData(disdata);
+  };
+  console.log(selectedData);
+  
+  // console.log(typeof(selectedData));
+
+  let districtsData = [{ "NTR": NTR }, { "guntur": Guntur }];
+
+  console.log(districtsData.find(item => item[selectedData]));
 
   // Fetch data from the server when the component mounts
   useEffect(() => {
@@ -50,12 +99,11 @@ const Welcome = () => {
     try {
       const response = await axios.post(EMP_SET_ROUTE, {
         cityId: city._id,
-        newValue: updateValues[city._id] || "", // Use the specific updateValue for the city
+        newValue: updateValues[city._id] || "",
         editname,
       });
 
       if (response.data.success) {
-        // Refresh the data after a successful update
         fetchData();
       } else {
         console.error("Update failed.");
@@ -104,7 +152,6 @@ const Welcome = () => {
     setShowUploadBody(true);
     setShowLatLngBody(false);
     setShowUserProfile(false);
-
   };
 
   const handleLatLngButtonClick = () => {
@@ -112,20 +159,17 @@ const Welcome = () => {
     setShowUploadBody(false);
     setShowLatLngBody(true);
     setShowUserProfile(false);
-
   };
   const handleUserButtonClick = () => {
     setShowForm(false);
     setShowUploadBody(false);
     setShowLatLngBody(false);
     setShowUserProfile(true);
-
   };
   const handleHomeClick = () => {
     // Navigate to the home page
-    navigate("/")
+    navigate("/");
   };
-  
 
   return (
     <div>
@@ -136,52 +180,48 @@ const Welcome = () => {
         <span>☰</span>
       </div>
 
-      <div className={`links-da ${isMenuOpen ? 'show' : ''}`}>
-      <ul>
+      <div className={`links-da ${isMenuOpen ? "show" : ""}`}>
+        <ul>
           <li>
-          <button
-              className="wierd"
-              role="button"
-              onClick={handleHomeClick}
-            > 
+            <button className="wierd" role="button" onClick={handleHomeClick}>
               Home
             </button>
           </li>
           <li>
-          <button
-            className="wierd"
-            onClick={handleFormButtonClick}
-            role="button"
-          >
-            Enter details via form
-          </button>
+            <button
+              className="wierd"
+              onClick={handleFormButtonClick}
+              role="button"
+            >
+              Enter details via form
+            </button>
           </li>
           <li>
-          <button
-            className="wierd"
-            onClick={handleExcelButtonClick}
-            role="button"
-          >
-            Upload details via Excel file
-          </button>
+            <button
+              className="wierd"
+              onClick={handleExcelButtonClick}
+              role="button"
+            >
+              Upload details via Excel file
+            </button>
           </li>
           <li>
-          <button
-            className="wierd"
-            onClick={handleLatLngButtonClick}
-            role="button"
-          >
-            Lattitude and Longitude
-          </button>
+            <button
+              className="wierd"
+              onClick={handleLatLngButtonClick}
+              role="button"
+            >
+              Lattitude and Longitude
+            </button>
           </li>
           <li>
-          <button
-           className="wierd"
-            onClick={handleUserButtonClick}
-            role="button"
-          >
-            User Profile
-          </button>
+            <button
+              className="wierd"
+              onClick={handleUserButtonClick}
+              role="button"
+            >
+              User Profile
+            </button>
           </li>
           {/* <li>
             <a href="#about">ABOUT US</a>
@@ -189,14 +229,13 @@ const Welcome = () => {
         </ul>
       </div>
 
-      
-      <br/>
+      <br />
       <div className="Admin-title">
         <h1>
-          Welcome, {userDistrict} Employee {editname} 
+          Welcome {userDistrict} District, Field Officer {editname} !!
         </h1>
-        </div>
-
+        <br />
+      </div>
 
       {/* <div className="admin-land">
         <div className="weltext">
@@ -225,7 +264,7 @@ const Welcome = () => {
         {showForm ? (
           <div className="body">
             <div className="container" id="container">
-              <h1>Enter the city</h1>
+              <h1>Choose your Mandal</h1>
               <div className="emplo-city">
                 <button className="btn-search" type="button">
                   <svg
@@ -244,76 +283,14 @@ const Welcome = () => {
                   className="input-p"
                 />
               </div>
-
-              <br />
-              <center>
-                <div className="admin-das">
-                  {district
-                    .filter((city) => city.name.includes(search))
-                    .map((city) => (
-                      <div
-                        key={city._id}
-                        style={{
-                          padding: "10px",
-                          color: city.value === null ? "red" : "green",
-                        }}
-                      >
-                        {" "}
-                        <div className="admina">
-                          <h3>
-                            {city.name} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <u style={{ color: "black" }}>Value:</u>{" "}
-                            {city.value}
-                          </h3>
-                          {city.image && (
-                            <img
-                              src={city.image}
-                              alt={`Image for ${city.name}`}
-                              style={{
-                                maxWidth: "100%",
-                                maxHeight: "60px",
-                              }}
-                            />
-                          )}
-
-                          {/* Input for updating value */}
-
-                          {city.value === null && (
-                            <>
-                              <input
-                                type="text"
-                                value={updateValues[city._id] || ""}
-                                onChange={(e) =>
-                                  setUpdateValues({
-                                    ...updateValues,
-                                    [city._id]: e.target.value,
-                                  })
-                                }
-                              />
-                              <button onClick={() => handleUpdate(city)}>
-                                Update Value
-                              </button>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              </center>
-
-              {/* <div class="overlay-container">
-            <div class="overlay">
-              <div class="overlay-panel overlay-right">
-                <h1>Hello, Employee!</h1>
-                <h2>&nbsp;</h2>
-                <p>Enter the location details and let the District Director <br/> decide the value !! </p>
-              </div>
-            </div>
-          </div> */}
-
-              {/* <div className="form-container "> */}
-
-              {/* </div> */}
+              {/* Pass the search term and data to the NetworkMap component */}
+              {/* <NetworkMap data= {NTR} search={search} /> */}
+              {selectedData && (
+                <NetworkMap
+                  data={districtsData.find((item) => item[selectedData])}
+                  search={search}
+                />
+              )}
             </div>
           </div>
         ) : null}
@@ -323,7 +300,9 @@ const Welcome = () => {
         {showUploadBody && (
           <div className="Excel-da">
             {/* <h1>Need to create the button </h1> */}
-      <button class="favorite styled" type="button">Upload your Sheet</button>
+            <button class="favorite styled" type="button">
+              Upload your Sheet
+            </button>
           </div>
         )}
       </div>
@@ -332,15 +311,11 @@ const Welcome = () => {
         {showLatLngBody && (
           <div className="Latt-da">
             <h1>Click on Allow Access</h1>
-            <MapsForm selectedLocation={selectedLocation}/>
+            <MapsForm selectedLocation={selectedLocation} />
           </div>
         )}
       </div>
-      <div>
-      {showUserProfile && (
-          <FormDetails editname={editname}/>
-        )}
-      </div>
+      <div>{showUserProfile && <FormDetails editname={editname} />}</div>
       <div className="welcfoot">
         <Foot />
       </div>

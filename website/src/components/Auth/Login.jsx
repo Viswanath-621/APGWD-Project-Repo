@@ -82,13 +82,47 @@ function Login() {
     backgroundImage: "url('/login-bg.png')"
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div> 
       {/* <Navibar isLoggedIn={isLoggedIn} username={username} /> */}
       {/* <Navibar isLoggedIn={isLoggedIn} username={us} handleLogout={handleLogout} /> */}
 
       <Navibar isLoggedIn={isLoggedIn} username={us} handleLogout={handleLogout} />
+      <div className="burger" onClick={toggleMenu}>
+        <span>☰</span>
+      </div>
 
+      <div className={`links-da ${isMenuOpen ? 'show' : ''}`}>
+      <ul>
+        <div className="nav-col1">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+          <li>
+            <a href="https://apsgwd.ap.gov.in/readmore/real-monitoring">NEWS</a>
+          </li>
+          <li>
+            <a href="https://apsgwd.ap.gov.in/home?id=award">AWARDS</a>
+          </li>
+          </div>
+          <div className="nav-col2">
+          <li>
+            <a href="https://apwrims.ap.gov.in/">APWRIMS</a>
+          </li>
+          <li>
+            <a href="https://apsgwd.ap.gov.in/home?id=contact">CONTACT</a>
+          </li>
+          <li>
+            <a href="#about">ABOUT US</a>
+          </li></div>
+        </ul>
+      </div>
 
       {designation === "admin" && (
 
