@@ -1,0 +1,82 @@
+.approve-li {
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin: 5%;
+  border-radius: 8px;
+}
+
+
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+input[type="text"] {
+  padding: 12px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #5c9edc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tr:hover {
+  background-color: #f0f0f0;
+}
+
+@media screen and (max-width: 768px) {
+  .approve-li {
+    padding: 10px;
+  }
+
+  .approve-li h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .approve-li h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .approve-li [type="text"] {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}

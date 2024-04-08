@@ -82,14 +82,21 @@ li a:hover {
 /* General styles for .logind */
 .logind {
   background-color: #008778;
-  border-radius: 25px;
-  padding: 10px;
-  text-align: center; /* Center text */
+  border-radius: 15px;
+  padding: 6px;
+  text-align: center; 
+}
+
+.logind h4{
+  color: #fff;
+  font: inherit;
+  text-align: center;
+  margin: 8px auto;
 }
 
 .logind a,
 .logind button {
-  color: aliceblue;
+  color: aliceblue !important;
   text-decoration: none;
   cursor: pointer;
   font-size: small;
@@ -597,7 +604,7 @@ fieldset {
 }
 
 .input-p {
-  width: 90%;
+  width: 50% !important;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -607,17 +614,35 @@ fieldset {
 }
 
 .bulk-da button {
-  background-color: #04aa6d;
-  color: white;
-  padding: 14px 20px;
-  /* margin: 8px 0; */
+  margin: 10px;
   border: none;
+  border-radius: 25px;
+  padding: 12px 16px; /* Reduce padding to make buttons smaller */
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #00171f;
+  opacity: 0.8;
   cursor: pointer;
-  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
+/* Hover effect */
 .bulk-da button:hover {
-  opacity: 0.8;
+  background-color: #0056b3;
+}
+
+.bulk-da {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bulk-da button {
+  margin: 10px;
+  top: 0;
+  border-radius: 15px;
 }
 
 .cancelbtn {
@@ -786,7 +811,7 @@ span.psw {
 
 .login-content input {
   width: 55%;
-  color: #ff0000;
+  color: #042c71;
   font-size: 15px;
   padding: 10px 20px;
   margin-bottom: 1rem;
@@ -1587,66 +1612,29 @@ blockquote:after {
   padding-top: 12px;
 }
 
-.admin-ta {
-  margin: 40px;
-  overflow-y: scroll;
-}
-
-.admin-ta table {
-  border-collapse: collapse;
-  width: 100%;
-  border-radius: 8px;
-}
-
-.admin-ta th,
-.admin-ta td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-  /* font-size: 20px; */
-  font-weight: bold;
-}
-
-.admin-ta th {
-  background-color: #f2f2f2; /* Add background color for heading cells if desired */
-}
-
-.admin-ta td .submit-ta {
-  background-color: #13a421;
-  border-radius: 25px;
-  width: 40%;
-  margin-right: 6px;
-  font: 12px sans-serif;
-  padding: 10px;
-}
-
-.admin-ta td .cancel-ta {
-  /* background-color: #13a421;  */
-  background-color: red;
-  border-radius: 25px;
-  width: 40%;
-  margin-right: 6px;
-  font: 12px sans-serif;
-  padding: 10px;
-}
-
+/* YourComponent.css */
 .employee-values {
-  background: #d3c77c;
-  padding: 5%;
-  padding-bottom: 8%;
+  background: #007ea7;
+  padding: 3%;
   margin: 5%;
   border-radius: 25px;
-  height: 80vh;
+  color: #000;
 }
-
 .employee-values input {
-  width: 100%;
+  width: calc(100% - 40px); 
+  max-width: 400px; /* Set maximum width to prevent overly stretched inputs */
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
+  display: block; /* Change display to block for responsiveness */
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 20px;
+}
+.employee-values .btn-search {
+  width: 100%; /* Set width to 100% for responsiveness */
+  max-width: 100px; /* Set maximum width if needed */
+  margin: 10px auto; /* Center the button horizontally and provide vertical margin */
+  display: block; /* Change display to block for responsiveness */
 }
 
 .employee-values h4 {
@@ -1654,10 +1642,16 @@ blockquote:after {
   font-size: 19px;
 }
 
-.employee-values .btn-search {
-  margin-left: 87%;
-  width: 25px;
-  margin-top: 10px;
+/* YourComponent.css */
+.admin-da {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Horizontally center the flex items */
+}
+
+.admin-da input {
+  flex: 1; /* Each input takes up equal space */
+  margin: 8px;
 }
 
 .check-da input {
@@ -1673,18 +1667,116 @@ blockquote:after {
   text-align: center;
 }
 
-.bulk-da {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.admin-ta {
+  margin: 40px;
+  overflow-x: auto; /* Enable horizontal scrolling on small screens */
 }
 
-.bulk-da button {
-  margin: 10px;
-  top: 0;
-  border-radius: 25px;
-  width: 40%;
+.admin-ta table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 8px;
+  overflow-x: auto; /* Enable horizontal scrolling on small screens */
 }
+
+.admin-ta th{
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.admin-ta td .submit-ta{
+  background-color: #13a421;
+  border-radius: 25px;
+  margin-right: 6px;
+  font: 12px sans-serif;
+  padding: 10px;
+  color:#fff;
+}
+
+.admin-ta td .cancel-ta {
+  border-radius: 25px;
+  background-color: red;
+  margin-right: 6px;
+  font: 12px sans-serif;
+  padding: 10px;
+  color:#fff;
+}
+
+
+
+.admin-ta td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: middle; /* Center content vertically */
+  color: #fff;
+}
+
+.admin-ta input[type="checkbox"] {
+  margin: 0 auto; /* Center the checkbox horizontally */
+}
+
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+  .admin-da {
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center; /* Center flex items vertically */
+  }
+  .admin-ta td .submit-ta,
+    .admin-ta td .cancel-ta {
+        width: 100%; /* Make buttons full width on smaller screens */
+        margin: 5px 0; /* Adjust margin for smaller screens */
+    }
+
+  .employee-values input {
+      max-width: 100%; /* Make inputs full width on smaller screens */
+      width: calc(100% - 20px); /* Adjust width to accommodate padding */
+  }
+
+  .employee-values .btn-search {
+      max-width: none; /* Reset max-width on larger screens */
+      width: auto; /* Reset width on larger screens */
+      margin: 10px 0; /* Reset margin on larger screens */
+      float: right; /* Float the button to the right on larger screens */
+  }
+
+  .admin-da input {
+      width: 70%; 
+  }
+
+  .check-da {
+      margin: 0; 
+  }
+
+  .admin-ta {
+      margin: 20px; 
+  }
+
+  .admin-ta th,
+  .admin-ta td {
+      font-size: 14px; 
+  }
+
+  .check-da {
+      margin: 0; /* Reset margin */
+  }
+
+
+  .bulk-da button {
+      width: auto;
+      margin: 6px;
+
+  }
+}
+
+
 
 .jd-mail {
   justify-content: center; /* For flex containers */
@@ -2094,4 +2186,56 @@ blockquote:after {
 
 .man-button-container button:hover {
   background-color: #dce0a0; /* Adjust button hover background color */
+}
+
+.Main-Field-form h2{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.Main-Field-form .field-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.Main-Field-form .field-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-right: 30px;
+}
+
+.Main-Field-form .form-group {
+  margin-bottom: 15px;
+}
+
+.Main-Field-form label {
+  font-weight: bold;
+}
+
+.Main-Field-form input[type="text"],
+.Main-Field-form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.Main-Field-form .submit-btn {
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Main-Field-form .submit-btn:hover {
+  background-color: #0056b3;
 }

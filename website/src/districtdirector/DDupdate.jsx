@@ -26,6 +26,7 @@ const DDupdate = (props) => {
     fetchData();
   }, []);
 
+  
   const handleUpdate = async (city) => {
     try {
         console.log(editname);

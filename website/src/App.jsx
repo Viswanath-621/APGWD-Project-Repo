@@ -10,13 +10,14 @@ import Jdmail from './Jointdirector/Jdmail';
 import NotFoundPage from "./pages/NotFoundPage";
 import NetworkMap from "./components/NetworkMap";
 import Data from "./data/NTR.json"
+import VillageSearch from "./components/Villagesearch";
 
 function App() {
 
-  // imp notes: 
+  // imp notes:  
 
   // Render Temp Backend api: "https://apgwdback.onrender.com"
-  // Render  Temp Fronend temp link: "https://apgwdfron.onrender.com/"
+  // Render Temp Fronend temp link: "https://apgwdfron.onrender.com/"
 
   //Render Temp2 Backend api: "https://apgwd-backend-server.onrender.com"
   
@@ -34,6 +35,7 @@ function App() {
         <Route path='/jd' element={<Jdmail/>}/>
         <Route path="/filldetails" element= {<FormDetails/>} />
         <Route path="/netmap" element={<NetworkMap/>} />
+        <Route path="/village" element={<VillageSearch/>} />
         <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </BrowserRouter>

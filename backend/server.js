@@ -8,12 +8,11 @@ const AuthModel = require("./models/Auth");
 const User = require("./db/user");
 const District = require("./db/district");
 const bcrypt = require('bcrypt');
-
+const Apgwd=require("./db/apgwd");
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-
 
 
 // mongoose.connect("mongodb+srv://apgwd:apgwd@apgwd.q3uwssp.mongodb.net/data?retryWrites=true&w=majority")
@@ -75,6 +74,21 @@ app.post('/profileupload', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
+});
+
+
+app.get('/villages', async (req, res) => {
+  const { district, mandal } = req.query;
+  console.log(district, mandal);
+  console.log(Apgwd);
+  try {
+    const village = await Apgwd.find({ "DISTRICT": district, "MANDAL": mandal });
+    console.log(village);
+    res.json(village);
+  } catch (error) {
+    console.error('Error retrieving villages:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 

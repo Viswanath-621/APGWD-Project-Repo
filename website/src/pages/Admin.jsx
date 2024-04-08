@@ -166,11 +166,20 @@ const Admin = () => {
   const [showNewEmpBody, setshowNewEmpBody] = useState(false);
   const [showNewStatBody, setshowNewStatBody] = useState(false);
   const [showAdminProfile, setShowAdminProfile] = useState(false);
+  const [showHomeProfile, setShowHomeProfile] = useState(true);
 
   const handleHomeClick = () => {
     // Navigate to the home page
-    navigate("/");
-  };
+    // navigate("/");
+    setshowEmployeeForm(false);
+    setshowTransferBody(false);
+    setshowPendingBody(false);
+    setShowUploadBody(false);
+    setshowNewEmpBody(false);
+    setshowNewStatBody(false);
+    setShowHomeProfile(true);
+    setShowAdminProfile(false);
+    };
 
   const handleEmployeeButtonClick = () => {
     // navigate("/filldetails");
@@ -180,6 +189,7 @@ const Admin = () => {
     setShowUploadBody(false);
     setshowNewEmpBody(false);
     setshowNewStatBody(false);
+    setShowHomeProfile(false)
   };
 
   const handleTransferButtonClick = () => {
@@ -236,18 +246,30 @@ const Admin = () => {
     setshowNewStatBody(true);
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div>
       <AdminNavBar username={userName} />
-      <div className="links-da">
-        <ul>
+
+      <div className="burger" onClick={toggleMenu}>
+        <span>☰</span>
+      </div>
+
+      <div className={`links-da ${isMenuOpen ? 'show' : ''}`}>
+      <ul>
+        <div className="nav-col1">
           <li>
-            <button className="wierd" role="button" onClick={handleHomeClick}>
+          <button className="wierd" role="button" onClick={handleHomeClick}>
               Home
             </button>
           </li>
           <li>
-            <button
+          <button
               className="wierd"
               role="button"
               onClick={handleEmployeeButtonClick}
@@ -256,7 +278,7 @@ const Admin = () => {
             </button>
           </li>
           <li>
-            <button
+          <button
               className="wierd" // onClick={handleExcelButtonClick}
               role="button"
               onClick={handleTransferButtonClick}
@@ -264,8 +286,10 @@ const Admin = () => {
               Transfer
             </button>
           </li>
+          </div>
+          <div className="nav-col2">
           <li>
-            <button
+          <button
               className="wierd"
               // onClick={handleLatLngButtonClick}
               role="button"
@@ -275,7 +299,7 @@ const Admin = () => {
             </button>
           </li>
           <li>
-            <button
+          <button
               className="wierd"
               // onClick={handleLatLngButtonClick}
               role="button"
@@ -286,7 +310,7 @@ const Admin = () => {
             </button>
           </li>
           <li>
-            <button
+          <button
               className="wierd"
               // onClick={handleLatLngButtonClick}
               role="button"
@@ -294,15 +318,13 @@ const Admin = () => {
             >
               Update
             </button>
-          </li>
-
-          {/* <li>
-          
-          </li> */}
+          </li></div>
         </ul>
       </div>
+      <br/>
+    
 
-      <div className="Admin-title">
+      {showHomeProfile ? ( <div className="Admin-title" >
         <h1>
           Welcome, {userDistrict} District Director {userName}
         </h1>
@@ -314,7 +336,7 @@ const Admin = () => {
         >
           Click Here To Check Your Profile
         </button>
-      </div>
+      </div>):null};
 
       
       {/* <div className="admin-land">
@@ -429,17 +451,7 @@ const Admin = () => {
                 onChange={handleSelectAll}
               />
             </div>
-            {/* <button className="btn-search" type="button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-          </svg>
-        </button> */}
-          </div>
+            </div>
 
           <div className="admin-ta">
             <table border="1">

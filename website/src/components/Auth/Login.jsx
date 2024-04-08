@@ -156,7 +156,6 @@ function Login() {
                 autoComplete="off"
                 name="username"
                 className="input-p"
-                // value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>

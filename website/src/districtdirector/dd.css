@@ -1,82 +1,63 @@
+/* dd.css */
+/* dd.css */
+
+/* CSS */
 .approve-li {
-    background-color: rgb(82, 3, 147);
-    width:  90%;
-    height: 80vh;
-    margin: 70px;
-    padding: 20px;
-    border-radius: 25px;
-    overflow-y: scroll;
-    color: antiquewhite;
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 2%;
+  margin: 2% auto; /* Changed margin to auto to center horizontally */
+  border-radius: 8px;
+  max-width: 80%; /* Added max-width */
+  overflow-x: auto; /* Added overflow-x to enable horizontal scrolling */
 }
 
-.approve-li div {
-    text-align: center;
-  }
-  
-  /* Style the heading */
-  .approve-li h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  /* Style the subheading */
-  .approve-li h4 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  /* Style the input */
-  .approve-li input {
-    padding: 10px;
-    width: 85%;
-    margin: 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    background-color: rgb(220, 222, 228);
-  }
-  
-  /* Style the city container */
-  .approve-li div {
-    padding: 10px;
-    margin: 10px;
-  }
-  
-  /* Color coding based on city value */
-  .approve-li div {
-    color: red; /* Default color */
-  }
-  
-  .approve-li div.green {
-    color: rgb(212, 221, 212); /* Color for cities with a non-null value
-  }
+.admin-app-ta table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
 
+input[type="text"] {
+  padding: 12px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
 
-.admin-app-ta{
-    margin: 40px;
+input[type="text"]:focus {
+  outline: none;
+  border-color: #5c9edc;
+}
+
+.admin-app-ta th, .admin-app-ta td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.admin-app-ta th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.admin-app-ta tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.admin-app-ta tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Additional styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .admin-app-ta {
+    overflow-x: auto;
   }
-  
-  .admin-app-ta table {
-    border-collapse: collapse;
-    width: 80%;
-    margin-top: 40px;
-    margin-left: 140px;
-    border-radius: 8px;
-  }
-  
-  .admin-app-ta th, .admin-app-ta td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-    /* font-size: 20px; *
-    font-weight: bold;
-    color: #f2f2f2;
-  }
-  
-  .admin-app-ta th {
-    background-color: #f2f2f2; /* Add background color for heading cells if desired */
-    color: green;
-  }
-  
+}
+
 
  .dd-update {
     /* background-color: rgb(195, 162, 16);
@@ -107,132 +88,152 @@
     overflow-y: scroll;
  }
 
- .pending-li{
-    background-color: bisque;
-    width:  90%;
-    height: 80vh;
-    margin: 70px;
-    padding: 20px;
-    border-radius: 25px;
-    overflow-y: scroll;
-    /* color: antiquewhite; */
- }
+/* YourComponent.css */
 
- .pending-li div {
-    text-align: center;
-    border: none;
-  }
-  
-  /* Style the heading */
-  .pending-li h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  /* Style the subheading */
-  .pending-li h4 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  /* Style the input */
-  .pending-li input {
-    padding: 10px;
-    width: 85%;
-    margin: 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    /* background-color: rgb(220, 222, 228); */
-  }
-  
-  /* Style the city container */
-  .pending-li div {
-    padding: 10px;
-    margin: 10px;
-  }
-  
-  /* Color coding based on city value */
-  .pending-li div {
-    color: red; /* Default color */
-  }
-  
-  .pending-li div.green {
-    color: rgb(212, 221, 212); /* Color for cities with a non-null value */
-  }
-  
-
-
-
-    .transfer-li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(82, 3, 147);
-    
-    margin: 70px;
-    padding: 20px;
-    border-radius: 25px;
-    overflow-y: scroll;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: antiquewhite;
+.pending-li {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #118ab2;
+  border-radius: 15px;
+  text-align: center;
 }
 
-.transfer-li div {
-    text-align: center;
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+
+}
+
+.search-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-input {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.city-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.city-item {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  width: 200px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.city-item:hover {
+  background-color: #e3e3e3;
+}
+
+.city-item:active {
+  background-color: #cfcfcf; /* Change color on click for feedback */
+}
+
+@media screen and (max-width: 768px) {
+  .city-item {
+    width: calc(100% - 90px);
   }
+
+  .search-container{
+    width: 80%;
+    margin-left: 25px;
+  }
+
+  .pending-li{
+    margin: 17px;
+  }
+}
   
+/* YourComponent.css */
+
+/* Base styles */
+.transfer-li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(82, 3, 147);
+  margin: 70px auto; /* Center the component and provide margin */
+  padding: 20px;
+  border-radius: 25px;
+  overflow-y: scroll; /* Enable scrolling if content overflows */
+  text-align: center;
+  color: antiquewhite;
+  max-width: 400px; /* Limit maximum width to prevent excessive stretching on larger screens */
+}
+
+.transfer-li form {
+  width: 100%; /* Ensure form fills container width */
+}
+
+.transfer-li input,
+.transfer-li select {
+  padding: 10px;
+  margin: 10px; /* Adjust vertical margin */
+   /* Make inputs fill container width */
+  border-radius: 20px;
+  width: 80%;
+  background-color: rgb(220, 222, 228);
+}
+
+.transfer-li button {
+  padding: 10px;
+  font-size: 15px;
+  margin: 20px 0; /* Adjust vertical margin */
+  width: 40%; /* Make button fill container width */
+  border-radius: 25px;
+}
+
+.transfer-li h1 {
+  font-size: 24px;
+  margin: 10px 0; /* Adjust vertical margin */
+}
+
+.transfer-li h4 {
+  font-size: 16px;
+  margin: 10px 0; /* Adjust vertical margin */
+}
+
+
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .transfer-li {
+      margin: 30px auto; /* Reduce top margin for smaller screens */
+      padding: 10px; /* Adjust padding for smaller screens */
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+
+  .transfer-li input,
   .transfer-li select {
-    padding: 10px;
-    border-radius: 25px;
+      width: 80%; /* Reduce input width for smaller screens */
   }
 
-  .transfer-li button{
-    padding: 10px;
-    /* width: 40%; */
-    font-size: 20px;
-    margin-top: 20px;
-    border-radius: 25px;
+  .transfer-li input,
+  .transfer-li select,
+  .transfer-li button {
+      font-size: 16px; /* Adjust font size for smaller screens */
   }
 
-  /* Style the heading */
   .transfer-li h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-
+      font-size: 20px; /* Adjust font size for smaller screens */
   }
-  
-  /* Style the subheading */
+
   .transfer-li h4 {
-    font-size: 16px;
-    margin-bottom: 10px;
+      font-size: 14px; /* Adjust font size for smaller screens */
   }
-  
-  /* Style the input */
-  .transfer-li input {
-    place-items: center;
-    padding: 10px;
-    /* width: 85%; */
-    margin: 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    background-color: rgb(220, 222, 228);
-  }
-  
-  .transfer-li div {
-    padding: 10px;
-    margin: 10px;
-  }
-  
-  /* Color coding based on city value */
-  .transfer-li div {
-    color: red; /* Default color */
-  }
-  
-  .transfer-li div.green {
-    color: rgb(212, 221, 212); /* Color for cities with a non-null value */
-  }
-  
-
+}

@@ -4,12 +4,13 @@ import axios from 'axios';
 const PendingList = (props) => {
   const [search, setSearch] = useState('');
   const [district, setDistrict] = useState([]);
-  const userDistrict=props.data;
+  const userDistrict = props.data;
+
   // Define the fetchData function
-  const DD_PENDING_LIST = import.meta.env.VITE_DD_PENDING_ROUTE
+  const DD_PENDING_LIST = import.meta.env.VITE_DD_PENDING_ROUTE;
   const fetchData = async () => {
     try {
-      const response = await axios.get(DD_PENDING_LIST,{params:{userDistrict}});
+      const response = await axios.get(DD_PENDING_LIST, { params: { userDistrict } });
       setDistrict(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -23,31 +24,31 @@ const PendingList = (props) => {
 
   return (
     <div className="pending-li">
-      <center>
-        <h1>PendingList</h1>
-        <h4>Enter the city</h4>
+      <h1>Pending List</h1>
+      <div className="search-container">
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-        /><br />
-
+          placeholder="Search city..."
+          className="search-input"
+        />
+      </div>
+      <div className="city-list">
         {district
-          .filter((city) => city.name.includes(search))
+          .filter((city) => city.name.toLowerCase().includes(search.toLowerCase()))
           .map((city) => (
             <div
               key={city._id}
+              className="city-item"
               style={{
-                // border: '1px solid black',
-                padding: '10px',
-                color: city.value === null ? 'red' : 'green',
+                borderColor: city.value === null ? 'red' : 'green',
               }}
             >
               {city.name}
-              
             </div>
           ))}
-      </center>
+      </div>
     </div>
   );
 };
