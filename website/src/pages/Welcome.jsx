@@ -86,13 +86,59 @@ const Welcome = () => {
   
   // console.log(typeof(selectedData));
 
-  let districtsData = [{ "NTR": NTR }, { "guntur": Guntur }];
+  // let districtsData = [{ "NTR": NTR }, { "guntur": Guntur },];
+  let districtsData = [
+    { "Alluri Sitharama Raju": Alluri },
+    { "Anakapalli": Anakapalli },
+    { "Ananthapuramu": Anantha },
+    { "Annamayya": Annamayya },
+    { "Bapatla": Bapatla },
+    { "Chittoor": Chittoor },
+    { "Dr BR Ambedkar Konaseema": Ambedkar },
+    { "East Godavari": East },
+    { "Eluru": Eluru },
+    { "Guntur": Guntur },
+    { "Kakinada": Kakinada },
+    { "Krishna": Krishna },
+    { "Kurnool": Kurnool },
+    { "Nandayala": Nandyala },
+    { "N.T.R": NTR },
+    { "Palnadu": Palnadu },
+    { "Parvathipuram Manyam": Parvathi },
+    { "Praksasam": Prakasam },
+    { "SPSR Nellore": SPSR },
+    { "Srikakulam": Srikakulam },
+    { "Sri Sathya Sai": SriSathyaSai },
+    { "Tirupati": Tirupati },
+    { "Visakhapatnam": Visakha },
+    { "Vizianagaram": Vizianagaram },
+    { "West Godavari": West },
+    { "YSR": YSR }
+  ];
 
   console.log(districtsData.find(item => item[selectedData]));
+
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  const [years, setYears] = useState([]);
 
   // Fetch data from the server when the component mounts
   useEffect(() => {
     fetchData();
+
+    
+    const currentMonth = new Date().getMonth();
+    setSelectedMonth(months[currentMonth]);
+
+    // Generate year options
+    const currentYear = new Date().getFullYear();
+    const yearOptions = Array.from({ length: 10 }, (_, index) => currentYear - index);
+    setYears(yearOptions);
+    setSelectedYear(currentYear.toString());
+
   }, []);
 
   const handleUpdate = async (city) => {
@@ -175,6 +221,113 @@ const Welcome = () => {
 
   const toggleContentVisibility = () => {
     setContentVisible(!contentVisible);
+  };
+
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
+
+
+  // const [file, setFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+  
+  const handleMonthChange = (event) => {
+    setSelectedMonth(event.target.value);
+  };
+
+  const handleYearChange = (event) => {
+    setSelectedYear(event.target.value);
+  };
+
+
+  
+
+  // const handleUpload = () => {
+  //   if (!file) {
+  //     alert('Please select a file.');
+  //     return;
+  //   }
+
+  //   const formData = new FormData();
+  //   formData.append('file', file);
+
+  //   axios.post('http://localhost:8000/xupload', formData, {
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data'
+  //     }
+  //   })
+    
+  //   .then(response => {
+  //     console.log(response.data);
+  //     setFile(null);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error uploading file:', error);
+  //   });
+  // };
+
+
+  // const handleUpload = () => {
+  //   if (selectedFile) {
+  //     const formData = new FormData();
+  //     formData.append('file', selectedFile);
+
+  //     // Send formData to backend endpoint for processing
+  //     fetch('http://localhost:8000/xupload', {
+  //       method: 'POST',
+  //       body: formData,
+  //     })
+  //     .then(response => {
+  //       if (response.ok) {
+  //         // File uploaded successfully, handle any UI changes
+  //         console.log('File uploaded successfully');
+  //       } else {
+  //         // Handle error cases
+  //         console.error('Failed to upload file');
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error('Error uploading file:', error);
+  //     });
+  //   } else {
+  //     console.error('No file selected');
+  //   }
+  // };
+
+  
+
+  const handleUpload = () => {
+    if (selectedFile && selectedMonth && selectedYear) {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+
+      // Construct table name
+      const tableName = `villages_${selectedMonth}_${selectedYear}`;
+
+      // Send formData and table name to backend endpoint for processing
+      fetch(`http://localhost:8000/xupload?tableName=${tableName}`, {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => {
+        if (response.ok) {
+          // File uploaded successfully, handle any UI changes
+          console.log('File uploaded successfully');
+        } else {
+          // Handle error cases
+          console.error('Failed to upload file');
+        }
+      })
+      .catch(error => {
+        console.error('Error uploading file:', error);
+      });
+    } else {
+      console.error('Please select file, month, and year');
+    }
   };
 
   return (
@@ -298,6 +451,7 @@ const Welcome = () => {
           district={userDistrict}
           data={districtsData.find((item) => item[selectedData])}
           search={search}
+          name={editname}
           toggleContentVisibility={toggleContentVisibility} // Pass the function to toggle visibility
         />
       )}
@@ -310,8 +464,22 @@ const Welcome = () => {
       <div>
         {showUploadBody && (
           <div className="Excel-da">
-            {/* <h1>Need to create the button </h1> */}
-            <button class="favorite styled" type="button">
+            <select value={selectedMonth} onChange={handleMonthChange}>
+        <option value="">Select Month</option>
+        {months.map((month, index) => (
+          <option key={index} value={month}>{month}</option>
+        ))}
+      </select>
+      <select value={selectedYear} onChange={handleYearChange}>
+        <option value="">Select Year</option>
+        {years.map((year, index) => (
+          <option key={index} value={year.toString()}>{year}</option>
+        ))}
+      </select>
+      &nbsp;&nbsp;
+
+          <input type="file" onChange={handleFileChange} />
+            <button class="favorite styled" type="button" onClick={handleUpload}>
               Upload your Sheet
             </button>
           </div>

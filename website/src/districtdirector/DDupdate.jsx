@@ -1,6 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './dd.css';
+import NetworkMap from '../components/NetworkMap';
+
+
+
+import Alluri from "../data/AlluriSitharamaRaju.json";
+import Anakapalli from "../data/Anakapalli.json";
+import Anantha from "../data/Ananthapuramu.json";
+import Annamayya from "../data/Annamayya.json";
+import Bapatla from "../data/Bapatla.json";
+import Chittoor from "../data/Chittoor.json";
+import Ambedkar from "../data/DrBRAmbedkarKonaseema.json";
+import East from "../data/EastGodavari.json";
+import Eluru from "../data/Eluru.json";
+import Guntur from "../data/Guntur.json";
+import Kakinada from "../data/Kakinada.json";
+import Krishna from "../data/Krishna.json";
+import Kurnool from "../data/Kurnool.json";
+import Nandyala from "../data/Nandyala.json";
+import NTR from "../data/NTR.json";
+import Palnadu from "../data/Palnadu.json";
+import Parvathi from "../data/ParvathipuramManyam.json";
+import Prakasam from "../data/Prakasam.json";
+import SPSR from "../data/SPSRNellore.json";
+import Srikakulam from "../data/Srikakulam.json";
+import SriSathyaSai from "../data/SriSathyaSai.json";
+import Tirupati from "../data/Tirupati.json";
+import Visakha from "../data/Visakhapatnam.json";
+import Vizianagaram from "../data/Vizianagaram.json";
+import West from "../data/WestGodavari.json";
+import YSR from "../data/YSRKadapa.json";
+
 
 const DDupdate = (props) => {
   const [search, setSearch] = useState('');
@@ -14,10 +45,14 @@ const DDupdate = (props) => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get(DD_GET,{params:{userDistrict}});
+      const response = await axios.get("http://localhost:8000/ddretrieve", {
+        params: { userDistrict },
+      });
       setDistrict(response.data);
+      
+    handleData(userDistrict);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -46,135 +81,91 @@ const DDupdate = (props) => {
       console.error('Error updating data:', error);
     }
   };
+  // const [showForm, setShowForm] = useState(false);
+  const [contentVisible, setContentVisible] = useState(true);
+
+  const toggleContentVisibility = () => {
+    setContentVisible(!contentVisible);
+  };
+
+  let districtsData = [
+    { "Alluri Sitharama Raju": Alluri },
+    { "Anakapalli": Anakapalli },
+    { "Ananthapuramu": Anantha },
+    { "Annamayya": Annamayya },
+    { "Bapatla": Bapatla },
+    { "Chittoor": Chittoor },
+    { "Dr BR Ambedkar Konaseema": Ambedkar },
+    { "East Godavari": East },
+    { "Eluru": Eluru },
+    { "Guntur": Guntur },
+    { "Kakinada": Kakinada },
+    { "Krishna": Krishna },
+    { "Kurnool": Kurnool },
+    { "Nandayala": Nandyala },
+    { "N.T.R": NTR },
+    { "Palnadu": Palnadu },
+    { "Parvathipuram Manyam": Parvathi },
+    { "Praksasam": Prakasam },
+    { "SPSR Nellore": SPSR },
+    { "Srikakulam": Srikakulam },
+    { "Sri Sathya Sai": SriSathyaSai },
+    { "Tirupati": Tirupati },
+    { "Visakhapatnam": Visakha },
+    { "Vizianagaram": Vizianagaram },
+    { "West Godavari": West },
+    { "YSR": YSR }
+  ];
+
+  
+  const [selectedData, setSelectedData] = useState(null);
+
+  const handleData = (disdata) => {
+    setSelectedData(disdata);
+  };
+  console.log(selectedData);
+  console.log(userDistrict)
 
   return (
-    <div className="dd-update ">
+    <div className="">
 
-
-      <div className="body">
-      
-        <div className="container" id="container">
-          
-          <h1>Enter the city</h1>
-            <div className="emplo-city">
-
+          <div className="body">
+            <div className="container" id="container">
+      {contentVisible && (
+        <>
+          <h1>Choose your Mandal</h1>
+          <div className="emplo-city">
             <button className="btn-search" type="button">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                  </svg>
-                </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+              </svg>
+            </button>
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="input-p"
-            /></div>
+            />
+          </div>
+        </>
+      )}
+      {selectedData && (
+        <NetworkMap
+          district={userDistrict}
+          data={districtsData.find((item) => item[selectedData])}
+          search={search}
+          toggleContentVisibility={toggleContentVisibility} // Pass the function to toggle visibility
+        />
+      )}
+    </div>
 
-            <br />
-            <center >
-        <div className="admin-das">
-            
-            {district
-              .filter((city) => city.name.includes(search))
-              .map((city) => (
-                <div
-                  key={city._id}
-                  style={{
-                    padding: "10px",
-                    color: city.value === null ? "red" : "green",
-                  }}
-                > <div className="admina">
-                  <h3>{city.name} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u style={{color: "black"}}>Value:</u> {city.value}</h3>
-                  
-                  
-                  {/* Input for updating value */}
-                  
-                  {city.value === null && (
-                    <>
-                      <input
-                        type="text"
-                        value={updateValues[city._id] || ""}
-                        onChange={(e) =>
-                          setUpdateValues({
-                            ...updateValues,
-                            [city._id]: e.target.value,
-                          })
-                        }
-                      />
-                      <button onClick={() => handleUpdate(city)}>
-                        Update Value
-                      </button>
-                    </>
-                  )}</div>
-                </div>
-              ))}</div>
-              
-          </center>
-          
-          {/* <div class="overlay-container">
-            <div class="overlay">
-              <div class="overlay-panel overlay-right">
-                <h1>Hello, Employee!</h1>
-                <h2>&nbsp;</h2>
-                <p>Enter the location details and let the District Director <br/> decide the value !! </p>
-              </div>
-            </div>
-          </div> */}
-
-{/* <div className="form-container "> */}
-            
-            
-        {/* </div> */}
-
-
-        </div>
-      </div>
-
-      {/* <center>
-        <h1>Enter the city</h1>
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        /><br />
-
-        {district
-          .filter((city) => city.name.includes(search))
-          .map((city) => (
-            <div
-              key={city._id}
-              style={{
-                border: '1px solid black',
-                padding: '10px',
-                color: city.value === null ? 'red' : 'green',
-              }}
-            >
-              {city.name} 
-              {city.value === null && (
-                <>
-                  <input
-                    type="text"
-                    value={updateValues[city._id] || ''}
-                    onChange={(e) =>
-                      setUpdateValues({
-                        ...updateValues,
-                        [city._id]: e.target.value,
-                      })
-                    }
-                  />
-                  <button onClick={() => handleUpdate(city)}>
-                    Update Value
-                  </button>
-                </>
-              )}
-            </div>
-          ))}
-      </center> */}
+          </div>
+       
     </div>
   );
 };

@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import NetworkMap from "./components/NetworkMap";
 import Data from "./data/NTR.json"
 import VillageSearch from "./components/Villagesearch";
+import Report from "./components/Report";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/filldetails" element= {<FormDetails/>} />
         <Route path="/netmap" element={<NetworkMap/>} />
         <Route path="/village" element={<VillageSearch/>} />
+        <Route path="/test" element={<Report/>} />
         <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </BrowserRouter>

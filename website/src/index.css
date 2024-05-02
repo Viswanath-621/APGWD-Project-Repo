@@ -76,6 +76,7 @@ li a:hover {
   flex-grow: 1; /* Allows title to take up available space */
   padding: 10px;
   font-size: 1em;
+  margin-right: 129px;
   /* Responsive font size */
 }
 /*Responsive code*/
@@ -468,9 +469,10 @@ li a:hover {
     rgba(25, 84, 123, 1),
     rgb(0, 135, 120, 1)
   );
-  color: white;
-  padding: 5% 0% 0% 0%;
-  height: 47vh;
+  /* color: white; */
+  padding: 1% 0% 0% 0%;
+  border-radius: 10px;
+  height: auto;
 }
 
 legend {
@@ -532,9 +534,10 @@ fieldset {
 .waves {
   position: relative;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 17px;
   max-height: 150px;
   overflow: hidden;
+  bottom: -5px;
 }
 
 .parallax {
@@ -660,10 +663,10 @@ img.avatar {
   width: 40%;
   border-radius: 50%;
 }
-
+/* 
 .container {
-  margin: 90px;
-}
+  margin: 0px;
+} */
 
 span.psw {
   float: right;
@@ -960,16 +963,10 @@ span.psw {
   width: 70px;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
   align-items: center;
-  margin-left: 87%;
-  margin-top: 10px;
+  margin-left: 32%;  
   position: absolute;
   color: #003480 !important;
-  left: 0;
-  /* height: 13%; */
-
-  /* padding: 0% 0% 4% 0%; */
   cursor: pointer;
   background: transparent;
 }
@@ -977,7 +974,7 @@ span.psw {
 .emplo-city .btn-search svg {
   background: 0 0;
   width: 30px;
-  height: 30px;
+  height: 25px;
   transition: all 0.2s ease-out, color 0.2s ease-out;
 }
 
@@ -1608,8 +1605,9 @@ blockquote:after {
 }
 
 .emplo-city {
-  padding-left: 125px;
-  padding-top: 12px;
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
 }
 
 /* YourComponent.css */
@@ -2164,12 +2162,12 @@ blockquote:after {
 /* styles.css */
 
 .man-button-container {
-  margin: 25px;
-  padding: 25px;
+  margin: 15px;
+  padding: 15px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 15px; /* Adjust the gap between buttons */
+  
 }
 
 .man-button-container button {
@@ -2179,6 +2177,7 @@ blockquote:after {
   color: #1956b1; /* Adjust button text color */
   border: none;
   border-radius: 5px;
+  margin: 5px; 
   cursor: pointer;
   transition: background-color 0.3s ease;
   flex-basis: calc(33.33% - 10px); /* Divide into three columns */
@@ -2218,7 +2217,7 @@ blockquote:after {
 
 .Main-Field-form input[type="text"],
 .Main-Field-form input[type="file"] {
-  width: 100%;
+  width: 95%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -2238,4 +2237,204 @@ blockquote:after {
 
 .Main-Field-form .submit-btn:hover {
   background-color: #0056b3;
+}
+
+
+/* Add this CSS to your stylesheet */
+.select-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.select-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.select-container select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+/* Style for the dropdown arrow */
+.select-container select::-ms-expand {
+  display: none;
+}
+
+.select-container select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.select-container select::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.select-container select:hover {
+  border-color: #6c757d;
+}
+
+.select-container select:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+
+/* CSS for the new button */
+.report .count-button {
+  background-color: #4CAF49;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.report .count-button:hover {
+  background-color: #45a050;
+}
+
+.report .count-table-container {
+  margin-top: 20px; /* Add a margin to create a gap between the table and the button */
+  text-align: center; /* Center align the content */
+}
+
+.report .count-button{
+  margin-top: 10px; /* Add margin to the top of the button */
+}
+
+
+/* CSS for the count table */
+.report .count-table {
+  width: 60%;
+  border-collapse: collapse;
+  margin: 0 auto; /* Center the table horizontally */
+  border-radius: 15px; /* Add border radius to round up the edges */
+}
+
+.report .count-table th,
+.report .count-table td {
+  border: 1px solid #000000;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid black;
+}
+
+.report .count-table th {
+  /* background-color: #f2f2f2; */
+  background-color: #0e427d; /* Color for table header */
+  font-weight: bold;
+  color: white; /* Text color for table header */
+  border: 1px solid black;
+}
+
+.report .report {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.report .dashboard-container {
+  /* background-color: #f9f9f9; */
+  color: #f9f9f9;
+  /* justify-content: center; */
+  text-align: center;
+  border-radius: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+}
+
+.report .dropdown-container {
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-size: 1.5em;
+
+}
+
+.report .dropdown-container label {
+  margin-right: 10px;
+  color: #0e427d; /* Color for the label */
+  margin-top: 30px;
+
+}
+.report .gojo{
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 5px;
+
+  color: #f9f9f9;
+}
+
+.report .gojo h1{
+  font-size: 2em;
+}
+.report .dropdown-container select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  
+  background-color: #e0d2d276;
+}
+
+.report .download-container {
+  text-align: center;
+  margin-top: 20px; /* Spacing between the table and the button */
+}
+
+.report .download-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.report .download-button:disabled {
+  background-color: #45a049;
+  cursor: not-allowed;
+}
+
+.report .download-button:hover {
+  background-color: #45a049;
+}
+
+.report .table-head{
+  height: 80vh;  
+  overflow-y: scroll;
+}
+.report .data-table {
+  width: 60%;
+  height: 200px;
+  border-collapse: collapse;
+  margin: 0 auto; /* Center the table horizontally */
+  border-radius: 15px; /* Add border radius to round up the edges */
+  overflow-y: scroll;
+}
+
+.report .data-table th, .data-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid black
+}
+
+.report .data-table th {
+  background-color: #0e427d; /* Color for table header */
+  color: white; /* Text color for table header */
+  border: 1px solid black  
 }

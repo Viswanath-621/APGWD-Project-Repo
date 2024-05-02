@@ -1,0 +1,88 @@
+{
+  "hash": "0d641a18",
+  "configHash": "1ea6a2dd",
+  "lockfileHash": "713f1685",
+  "browserHash": "7eb70793",
+  "optimized": {
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "6acced84",
+      "needsInterop": false
+    },
+    "@fortawesome/react-fontawesome": {
+      "src": "../../node_modules/@fortawesome/react-fontawesome/index.es.js",
+      "file": "@fortawesome_react-fontawesome.js",
+      "fileHash": "17c75df0",
+      "needsInterop": false
+    },
+    "@react-google-maps/api": {
+      "src": "../../node_modules/@react-google-maps/api/dist/esm.js",
+      "file": "@react-google-maps_api.js",
+      "fileHash": "61d3292e",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "8e73f21b",
+      "needsInterop": false
+    },
+    "emailjs-com": {
+      "src": "../../node_modules/emailjs-com/es/index.js",
+      "file": "emailjs-com.js",
+      "fileHash": "7a6a1a54",
+      "needsInterop": false
+    },
+    "mdb-react-ui-kit": {
+      "src": "../../node_modules/mdb-react-ui-kit/dist/mdb-react-ui-kit.esm.js",
+      "file": "mdb-react-ui-kit.js",
+      "fileHash": "e1940690",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "2027796d",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "94d3fddc",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "ba83199c",
+      "needsInterop": false
+    },
+    "remixicon-react/AlertFillIcon": {
+      "src": "../../node_modules/remixicon-react/AlertFillIcon.js",
+      "file": "remixicon-react_AlertFillIcon.js",
+      "fileHash": "f730c706",
+      "needsInterop": true
+    },
+    "remixicon-react/AlertLineIcon": {
+      "src": "../../node_modules/remixicon-react/AlertLineIcon.js",
+      "file": "remixicon-react_AlertLineIcon.js",
+      "fileHash": "183d3a35",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-ZAPTD2WP": {
+      "file": "chunk-ZAPTD2WP.js"
+    },
+    "chunk-PXJLUKTU": {
+      "file": "chunk-PXJLUKTU.js"
+    },
+    "chunk-FQO5W7GE": {
+      "file": "chunk-FQO5W7GE.js"
+    },
+    "chunk-ZS7NZCD4": {
+      "file": "chunk-ZS7NZCD4.js"
+    }
+  }
+}

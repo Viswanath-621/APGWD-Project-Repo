@@ -10,8 +10,9 @@ const PendingList = (props) => {
   const DD_PENDING_LIST = import.meta.env.VITE_DD_PENDING_ROUTE;
   const fetchData = async () => {
     try {
-      const response = await axios.get(DD_PENDING_LIST, { params: { userDistrict } });
+      const response = await axios.get("http://localhost:8000/pendinglist", { params: { userDistrict } });
       setDistrict(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -22,6 +23,10 @@ const PendingList = (props) => {
     fetchData();
   }, []);
 
+
+  
+
+
   return (
     <div className="pending-li">
       <h1>Pending List</h1>
@@ -30,13 +35,13 @@ const PendingList = (props) => {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search city..."
+          placeholder="Search Mandal"
           className="search-input"
         />
       </div>
       <div className="city-list">
         {district
-          .filter((city) => city.name.toLowerCase().includes(search.toLowerCase()))
+          .filter((city) => city.Mandal.toLowerCase().includes(search.toLowerCase()))
           .map((city) => (
             <div
               key={city._id}
@@ -45,7 +50,7 @@ const PendingList = (props) => {
                 borderColor: city.value === null ? 'red' : 'green',
               }}
             >
-              {city.name}
+              {city.Mandal}
             </div>
           ))}
       </div>

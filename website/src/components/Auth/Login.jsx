@@ -8,15 +8,11 @@ import Admin from "../../pages/Admin";
 import Welcome from "../../pages/Welcome";
 import Footer from "../Footer";
 
-
-
 function Login() {
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
 
   const [successState, setSuccessState] = useState(false);
   const [designation, setDesignation] = useState("");
@@ -24,40 +20,36 @@ function Login() {
   const [us, setus] = useState("");
   const [userComponent, setUserComponent] = useState(null);
 
+  const LoginRoute = import.meta.env.VITE_LOGIN_ROUTE;
 
-  const LoginRoute = import.meta.env.VITE_LOGIN_ROUTE
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // const response = await axios.post("https://apgwdback.onrender.com/login", { username, password });
-      // const response = await axios.post('https://apgwd-backend-service.onrender.com/login', { username, password });
-      // const response = await axios.post('http://localhost:8000/login', { username, password });
-      const response = await axios.post(LoginRoute, { username, password });
-      console.log(LoginRoute);
-      console.log("Response from server:", response);
-      const { success, message, designation, district, username: responseUsername } = response.data;
+      const response = await axios.post("http://localhost:8000/login", {
+        username,
+        password,
+      });
+      console.log("Response from server:", response.data);
 
-      console.log(responseUsername); // Use the renamed variable here
-      console.log(district, message, designation);
-      console.log("success", success);
-      setSuccessState(success);
+      const {
+        success,
+        message,
+        designation,
+        district,
+        username: responseUsername,
+      } = response.data;
 
       if (success) {
-        console.log('Login Successfully');
+        console.log("Login Successful");
 
         setGdistrict(district);
         setDesignation(designation);
-        setus(responseUsername); // Use the renamed variable here
+        setus(responseUsername);
         setIsLoggedIn(true);
-
-        console.log(gdistrict, 'D', designation);
-
       } else {
         console.log(message);
       }
-
     } catch (error) {
       console.error("Error during login:", error);
       // Handle error, show a message to the user, etc.
@@ -66,7 +58,7 @@ function Login() {
 
   useEffect(() => {
     // Log the values after the component re-renders
-    console.log(gdistrict, 'D', designation);
+    console.log(gdistrict, "D", designation);
   }, [gdistrict, designation]);
 
   const handleLogout = () => {
@@ -75,11 +67,11 @@ function Login() {
   };
 
   const divStyle = {
-    backgroundImage: 'url("signbg.png")'
+    backgroundImage: 'url("signbg.png")',
   };
 
   const divlStyle = {
-    backgroundImage: "url('/login-bg.png')"
+    backgroundImage: "url('/login-bg.png')",
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -89,47 +81,54 @@ function Login() {
   };
 
   return (
-    <div> 
+    <div>
       {/* <Navibar isLoggedIn={isLoggedIn} username={username} /> */}
       {/* <Navibar isLoggedIn={isLoggedIn} username={us} handleLogout={handleLogout} /> */}
 
-      <Navibar isLoggedIn={isLoggedIn} username={us} handleLogout={handleLogout} />
+      <Navibar
+        isLoggedIn={isLoggedIn}
+        username={us}
+        handleLogout={handleLogout}
+      />
       <div className="burger" onClick={toggleMenu}>
         <span>☰</span>
       </div>
 
-      <div className={`links-da ${isMenuOpen ? 'show' : ''}`}>
-      <ul>
-        <div className="nav-col1">
-          <li>
-            <a href="/">HOME</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/readmore/real-monitoring">NEWS</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/home?id=award">AWARDS</a>
-          </li>
+      <div className={`links-da ${isMenuOpen ? "show" : ""}`}>
+        <ul>
+          <div className="nav-col1">
+            <li>
+              <a href="/">HOME</a>
+            </li>
+            <li>
+              <a href="https://apsgwd.ap.gov.in/readmore/real-monitoring">
+                NEWS
+              </a>
+            </li>
+            <li>
+              <a href="https://apsgwd.ap.gov.in/home?id=award">AWARDS</a>
+            </li>
           </div>
           <div className="nav-col2">
-          <li>
-            <a href="https://apwrims.ap.gov.in/">APWRIMS</a>
-          </li>
-          <li>
-            <a href="https://apsgwd.ap.gov.in/home?id=contact">CONTACT</a>
-          </li>
-          <li>
-            <a href="#about">ABOUT US</a>
-          </li></div>
+            <li>
+              <a href="https://apwrims.ap.gov.in/">APWRIMS</a>
+            </li>
+            <li>
+              <a href="https://apsgwd.ap.gov.in/home?id=contact">CONTACT</a>
+            </li>
+            <li>
+              <a href="#about">ABOUT US</a>
+            </li>
+          </div>
         </ul>
       </div>
 
-      {designation === "admin" && (
+      {/* {designation === "admin" && (
 
         <Navigate to="/admin" replace={true} state={{ district: gdistrict, name: us }} />
 
       )}
-      {designation === "employee" && (
+      {designation === "Tech. Assistant(Gp)" && (
         <Navigate
           to="/employee"
           replace={true}
@@ -140,7 +139,31 @@ function Login() {
       {
         designation === 'jd' && (<Navigate to="/jd" replace={true} />)
 
-      }
+      } */}
+
+      {isLoggedIn && designation === "jd" && (
+        <Navigate to="/jd" replace={true} />
+      )}
+      {isLoggedIn &&
+        (designation.includes("Assistant Director") ||
+          designation.includes("Deputy Director")) && (
+          <Navigate
+            to="/admin"
+            replace={true}
+            state={{ district: gdistrict, name: us }}
+          />
+        )}
+      {isLoggedIn &&
+        designation !== "jd" &&
+        !designation.includes("Assistant Director") &&
+        !designation.includes("Deputy Director") && (
+          <Navigate
+            to="/employee"
+            replace={true}
+            state={{ district: gdistrict, name: us }}
+          />
+        )}
+
       <div className="login-container" style={divStyle}>
         <div className="login-content" style={divlStyle}>
           <h2>Login Now</h2> <br />
@@ -152,7 +175,7 @@ function Login() {
               <br />
               <input
                 type="text"
-                placeholder="Enter Email"
+                placeholder="Enter your id"
                 autoComplete="off"
                 name="username"
                 className="input-p"
@@ -175,9 +198,9 @@ function Login() {
               />
             </div>
 
-            <button type="submit" >
-              Login
-            </button><br/><br />
+            <button type="submit">Login</button>
+            <br />
+            <br />
           </form>
           <div className="signup-btn">
             <p>
@@ -187,20 +210,20 @@ function Login() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
 
 const AdminComponent = () => {
-  return (<Admin />)
-  {/* Add Admin-specific content here */ }
-
+  return <Admin />;
+  {
+    /* Add Admin-specific content here */
+  }
 };
 
 const UserComponent = () => {
-  return (<Welcome />)
+  return <Welcome />;
 };
-
 
 export default Login;

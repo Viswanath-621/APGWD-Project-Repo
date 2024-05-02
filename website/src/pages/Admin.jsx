@@ -29,14 +29,15 @@ const Admin = () => {
   const ADMIN_CANCEL = import.meta.env.VITE_ADMIN_CANCEL_ROUTE;
   const ADMIN_RETRIEVE = import.meta.env.VITE_ADMIN_RETRIEVE_ROUTE;
 
-  const ADMIN_BASE_URL = import.meta.env.VITE_BASE_URL;
+  // const ADMIN_BASE_URL = import.meta.env.VITE_BASE_URL;
+  const ADMIN_BASE_URL = "http://localhost:8000";
 
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      // const response = await axios.get("http://localhost:8000/adminretrieve", {
+      const response = await axios.get("http://localhost:8000/adminretrieve", {
 
-      const response = await axios.get(ADMIN_RETRIEVE, {
+      // const response = await axios.get(ADMIN_RETRIEVE, {
         params: { userDistrict },
       });
       setDistrict(response.data);
@@ -52,9 +53,9 @@ const Admin = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post(ADMIN_UPDATE, {
+      const response = await axios.post("http://localhost:8000/adminupdate", {
         cityId: city._id,
-        newValue: city.value, // Use the specific updateValue for the city
+        newValue: city.Value, // Use the specific updateValue for the city
       });
 
       if (response.data.success) {
@@ -70,7 +71,7 @@ const Admin = () => {
 
   const handleCancel = async (city) => {
     try {
-      const response = await axios.post(ADMIN_CANCEL, {
+      const response = await axios.post("http://localhost:8000/admincancel", {
         cityId: city._id,
       });
 
@@ -98,12 +99,12 @@ const Admin = () => {
     const filteredAndSortedCities = district
       .filter(
         (city) =>
-          city.name.includes(search) &&
+          city.Mandal.includes(search) &&
           city.updatetime.includes(updateTimeFilter)
       )
       .sort(
         (a, b) =>
-          a.name.localeCompare(b.name) ||
+          a.Mandal.localeCompare(b.name) ||
           a.updatetime.localeCompare(b.updatetime)
       );
 
@@ -120,7 +121,7 @@ const Admin = () => {
     const selectedCityIds = Object.keys(checkedRecords).filter(
       (cityId) => checkedRecords[cityId]
     );
-
+    
     const ADMIN_ACTION_URL = `${ADMIN_BASE_URL}/admin${action}`;
 
     if (selectedCityIds.length === 0) {
@@ -458,7 +459,9 @@ const Admin = () => {
               <thead>
                 <tr>
                   <th>Index</th>
-                  <th>Station Name</th>
+                  <th>PZ ID</th>
+                  <th>Mandal</th>
+                  <th>Village</th>
                   <th>Delta Value</th>
                   <th>Updated By</th>
                   <th>Date & Time</th>
@@ -470,12 +473,12 @@ const Admin = () => {
                 {district
                   .filter(
                     (city) =>
-                      city.name.includes(search) &&
+                      city.Mandal.includes(search) &&
                       city.updatetime.includes(updateTimeFilter)
                   )
                   .sort(
                     (a, b) =>
-                      a.name.localeCompare(b.name) ||
+                      a.Mandal.localeCompare(b.name) ||
                       a.updatetime.localeCompare(b.updatetime)
                   )
                   .map((city, index) => {
@@ -493,8 +496,10 @@ const Admin = () => {
                         style={{ color: isRed ? "red" : "green", opacity: 0.6 }}
                       >
                         <td>{index + 1}</td>
-                        <td>{city.name}</td>
-                        <td>{city.value}</td>
+                        <td>{city.PZ_ID}</td>
+                        <td>{city.Mandal}</td>
+                        <td>{city.Village}</td>
+                        <td>{city.Value}</td>
                         <td>{`${updatedBy}`}</td>
                         <td>{dateTime}</td>
                         <td>

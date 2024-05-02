@@ -12,8 +12,10 @@ const ApprovalList = (props) => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get(DD_APPROVE, { params: { userDistrict } });
+      const response = await axios.get("http://localhost:8000/approvallist", { params: { userDistrict } });
       setDistrict(response.data);
+
+      console.log(response.data +" jinna");
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -41,7 +43,9 @@ const ApprovalList = (props) => {
             <thead>
               <tr>
                 <th>Index</th>
-                <th>Station Name</th>
+                <th>PZ_ID</th>
+                <th>Mandal</th>
+                <th>Village</th>
                 <th>Delta Value</th>
                 <th>Updated By</th>
                 <th>Date & Time</th>
@@ -49,7 +53,7 @@ const ApprovalList = (props) => {
             </thead>
             <tbody>
               {district
-                .filter((city) => city.name.includes(search))
+                .filter((city) => city.Mandal.includes(search))
                 .map((city, index) => {
                   const isRed = city.finalvalue === null && city.value !== null;
                   const updateInfo = city.updatetime ? city.updatetime.split("At ") : ['', ''];
@@ -59,8 +63,10 @@ const ApprovalList = (props) => {
                   return (
                     <tr key={city._id} style={{ color: isRed ? "red" : "green", opacity: 0.6 }}>
                       <td>{index + 1}</td>
-                      <td>{city.name}</td>
-                      <td>{city.value}</td>
+                      <td>{city.PZ_ID}</td>
+                      <td>{city.Mandal}</td>
+                      <td>{city.Village}</td>
+                      <td>{city.Value}</td>
                       <td>{`${updatedBy}`}</td>
                       <td>{dateTime}</td>
                     </tr>

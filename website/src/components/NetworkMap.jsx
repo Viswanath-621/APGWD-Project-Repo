@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-const NetworkMap = ({ district, data, search,toggleContentVisibility }) => {
-  // console.log(data);
+const NetworkMap = ({ district, data, search,toggleContentVisibility, name }) => {
+  // console.log(name);
   const dataArray = Object.values(data);
   console.log(dataArray);
   const filteredData = dataArray[0].filter((item) =>
@@ -31,7 +31,7 @@ const NetworkMap = ({ district, data, search,toggleContentVisibility }) => {
         </button>
       )))}
 
-      {clickedItem && (<FieldOfficerData district={district} mandal={clickedItem} />)}
+      {clickedItem && (<FieldOfficerData name={name} district={district} mandal={clickedItem} />)}
     </div>
   );
 };
