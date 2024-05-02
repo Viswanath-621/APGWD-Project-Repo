@@ -28,7 +28,7 @@ const Transfer = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(DD_TRANSFER, {
+      const response = await axios.post("https://gwlms-ap.onrender.com/employeetransfer", {
         username,
         transferto,
       });

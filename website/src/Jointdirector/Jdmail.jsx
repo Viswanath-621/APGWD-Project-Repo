@@ -9,7 +9,7 @@ const JD_GET_PENDING = import.meta.env.VITE_DD_PENDING_ROUTE
 
 const fetchallwell = async (userDistrict) => {
   try {
-    const response = await axios.get(JD_GET_PENDING, {
+    const response = await axios.get("https://gwlms-ap.onrender.com/pendinglist", {
       params: { userDistrict },
     });
     console.log(response.data);

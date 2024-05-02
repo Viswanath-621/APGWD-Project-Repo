@@ -130,7 +130,7 @@ const Report = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8000/report");
+      const response = await fetch("https://gwlms-ap.onrender.com/report");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }

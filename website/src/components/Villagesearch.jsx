@@ -9,7 +9,7 @@ function VillageSearch() {
   // Fetch data function
   async function fetchData(district, mandal) {
     try {
-      const response = await axios.get('http://localhost:8000/villages', {
+      const response = await axios.get('https://gwlms-ap.onrender.com/villages', {
         params: { district, mandal }
       });
       setVillages(response.data);

@@ -10,7 +10,7 @@ const PendingList = (props) => {
   const DD_PENDING_LIST = import.meta.env.VITE_DD_PENDING_ROUTE;
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/pendinglist", { params: { userDistrict } });
+      const response = await axios.get("https://gwlms-ap.onrender.com/pendinglist", { params: { userDistrict } });
       setDistrict(response.data);
       console.log(response.data);
     } catch (error) {

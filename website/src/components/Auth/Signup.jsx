@@ -20,7 +20,7 @@ function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("https://apgwd-backend-service.onrender.com/signup", {name, email, password })
+        axios.post("https://gwlms-ap.onrender.com/signup", {name, email, password })
         .then(res => {console.log(res)
             navigate('/login')
         })

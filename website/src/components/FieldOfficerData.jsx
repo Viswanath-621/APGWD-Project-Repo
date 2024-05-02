@@ -17,7 +17,7 @@ const FieldOfficerData = ({ mandal, district, name }) => {
     event.preventDefault();
 
     try {
-      const response = await axios.get("http://localhost:8000/update", {
+      const response = await axios.get("https://gwlms-ap.onrender.com/update", {
         params: {
           PZ_ID: selectedPzId,
           // District: district,
@@ -43,7 +43,7 @@ const FieldOfficerData = ({ mandal, district, name }) => {
 
   async function fetchData(district, mandal) {
     try {
-      const response = await axios.get("http://localhost:8000/villages", {
+      const response = await axios.get("https://gwlms-ap.onrender.com/villages", {
         params: { district, mandal },
       });
       setVillages(response.data);

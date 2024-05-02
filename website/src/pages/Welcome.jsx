@@ -66,7 +66,7 @@ const Welcome = () => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get(EMP_GET_ROUTE, {
+      const response = await axios.get("https://gwlms-ap.onrender.com/employeeretrieve", {
         params: { userDistrict },
       });
       setDistrict(response.data);
@@ -143,7 +143,7 @@ const Welcome = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post(EMP_SET_ROUTE, {
+      const response = await axios.post("https://gwlms-ap.onrender.com/update", {
         cityId: city._id,
         newValue: updateValues[city._id] || "",
         editname,
@@ -309,7 +309,7 @@ const Welcome = () => {
       const tableName = `villages_${selectedMonth}_${selectedYear}`;
 
       // Send formData and table name to backend endpoint for processing
-      fetch(`http://localhost:8000/xupload?tableName=${tableName}`, {
+      fetch(`https://gwlms-ap.onrender.com/xupload?tableName=${tableName}`, {
         method: 'POST',
         body: formData,
       })

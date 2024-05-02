@@ -30,12 +30,12 @@ const Admin = () => {
   const ADMIN_RETRIEVE = import.meta.env.VITE_ADMIN_RETRIEVE_ROUTE;
 
   // const ADMIN_BASE_URL = import.meta.env.VITE_BASE_URL;
-  const ADMIN_BASE_URL = "http://localhost:8000";
+  const ADMIN_BASE_URL = "https://gwlms-ap.onrender.com";
 
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/adminretrieve", {
+      const response = await axios.get("https://gwlms-ap.onrender.com/adminretrieve", {
 
       // const response = await axios.get(ADMIN_RETRIEVE, {
         params: { userDistrict },
@@ -53,7 +53,7 @@ const Admin = () => {
 
   const handleUpdate = async (city) => {
     try {
-      const response = await axios.post("http://localhost:8000/adminupdate", {
+      const response = await axios.post("https://gwlms-ap.onrender.com/adminupdate", {
         cityId: city._id,
         newValue: city.Value, // Use the specific updateValue for the city
       });
@@ -71,7 +71,7 @@ const Admin = () => {
 
   const handleCancel = async (city) => {
     try {
-      const response = await axios.post("http://localhost:8000/admincancel", {
+      const response = await axios.post("https://gwlms-ap.onrender.com/admincancel", {
         cityId: city._id,
       });
 

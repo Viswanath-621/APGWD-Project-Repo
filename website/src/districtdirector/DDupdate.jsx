@@ -45,7 +45,7 @@ const DDupdate = (props) => {
   // Define the fetchData function
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/ddretrieve", {
+      const response = await axios.get("https://gwlms-ap.onrender.com/ddretrieve", {
         params: { userDistrict },
       });
       setDistrict(response.data);
